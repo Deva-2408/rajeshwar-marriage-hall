@@ -675,6 +675,16 @@ function Index() {
 
           .about-content h3 { font-size: 1.75rem; }
           .about-content p { font-size: 1rem; }
+
+          .facilities-grid {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+          }
+
+          .facility-card { padding: 2rem 1.25rem; }
+          .facility-icon { font-size: 2rem; }
+          .facility-name { font-size: 1.05rem; }
+          .facility-desc { font-size: 0.85rem; }
         }
 
         @media (min-width: 1024px) {
