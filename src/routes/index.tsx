@@ -464,6 +464,97 @@ function Index() {
 
         .footer a:hover { color: var(--accent); }
 
+        /* About Section */
+        .about-wrapper { text-align: center; margin-bottom: 2.5rem; }
+
+        .about-divider {
+          width: 60px;
+          height: 3px;
+          background-color: var(--accent);
+          margin: 0.75rem auto 1rem;
+          border-radius: 2px;
+        }
+
+        .about-hindi {
+          font-family: var(--font-body);
+          font-size: 0.95rem;
+          font-weight: 500;
+          color: var(--accent);
+          letter-spacing: 1px;
+        }
+
+        .about-grid {
+          display: flex;
+          flex-direction: column;
+          gap: 2.5rem;
+        }
+
+        .about-image-placeholder {
+          width: 100%;
+          aspect-ratio: 4 / 3;
+          border: 2px solid var(--accent);
+          border-radius: var(--radius-lg);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: #FDF8F0;
+          font-family: var(--font-body);
+          font-size: 0.9rem;
+          color: var(--light-text);
+        }
+
+        .about-content h3 {
+          font-family: var(--font-heading);
+          font-size: 1.5rem;
+          font-weight: 700;
+          color: var(--primary);
+          margin-bottom: 1.25rem;
+          line-height: 1.3;
+        }
+
+        .about-content p {
+          font-family: var(--font-body);
+          font-size: 0.95rem;
+          color: var(--text);
+          line-height: 1.8;
+          margin-bottom: 1rem;
+        }
+
+        .about-meta {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          gap: 1rem;
+          margin-top: 1.5rem;
+        }
+
+        .about-owner {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+          font-family: var(--font-body);
+          font-size: 0.9rem;
+          font-style: italic;
+          color: var(--accent);
+          background-color: rgba(201, 168, 76, 0.08);
+          padding: 0.5rem 1rem;
+          border-radius: var(--radius-md);
+        }
+
+        .about-owner i { font-size: 0.85rem; }
+
+        .about-established {
+          display: inline-block;
+          font-family: var(--font-body);
+          font-size: 0.8rem;
+          font-weight: 600;
+          color: var(--accent);
+          border: 1.5px solid var(--accent);
+          padding: 0.4rem 0.9rem;
+          border-radius: var(--radius-md);
+          letter-spacing: 0.5px;
+        }
+
         @media (min-width: 768px) {
           .container { padding: 0 1.5rem; }
           .section { padding: 5rem 0; }
@@ -614,7 +705,31 @@ function Index() {
       {/* About Section */}
       <section className="section" id="about">
         <div className="container">
-          {/* About content will go here */}
+          <div className="about-wrapper">
+            <h2 className="section-title">About Us</h2>
+            <div className="about-divider"></div>
+            <p className="about-hindi">हमारे बारे में</p>
+          </div>
+          <div className="about-grid">
+            <div className="about-image-placeholder">
+              <span>Hall Photo</span>
+            </div>
+            <div className="about-content">
+              <h3>Bihta's Premier Wedding Venue</h3>
+              <p>
+                Rajeshwar Marriage Hall is a proud landmark in Bihta, Bihar. Established on 15th December 2024, our hall was built with one dream — to give every family in Bihta and nearby villages a truly royal venue to celebrate their most precious moments.
+              </p>
+              <p>
+                With a glorious elevation design and royal look that stands apart from any other hall in the region, Rajeshwar Marriage Hall offers a premium experience at an affordable price. From weddings to receptions, engagements to birthday celebrations — every event here becomes a lifelong memory.
+              </p>
+              <div className="about-meta">
+                <span className="about-owner">
+                  <i className="fas fa-user-tie"></i> Proprietor: Pintu Kumar Singh
+                </span>
+                <span className="about-established">Est. 15 Dec 2024</span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
