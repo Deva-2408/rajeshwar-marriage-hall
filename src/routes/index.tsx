@@ -723,6 +723,12 @@ function Index() {
           .about-grid { gap: 4rem; }
           .about-content h3 { font-size: 2rem; }
           .about-content p { font-size: 1.05rem; }
+
+          .facilities-grid { gap: 2rem; }
+          .facility-card { padding: 2.25rem 1.5rem; }
+          .facility-icon { font-size: 2.25rem; }
+          .facility-name { font-size: 1.1rem; }
+          .facility-desc { font-size: 0.9rem; }
         }
       `}</style>
 
