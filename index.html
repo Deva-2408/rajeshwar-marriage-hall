@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rajeshwar Marriage Hall - Bihta, Bihar</title>
+  <meta name="description" content="Rajeshwar Marriage Hall - Premier wedding venue in Bihta, Bihar, India">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    /* ============================================
+       CSS VARIABLES & DESIGN TOKENS
+       ============================================ */
+    :root {
+      --primary: #8B0000;
+      --accent: #C9A84C;
+      --background: #FFFDF7;
+      --text: #1A1A1A;
+      --light-text: #5A5A5A;
+      --white: #FFFFFF;
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'Poppins', sans-serif;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-xl: 16px;
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+      --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+      --transition-fast: 0.15s ease;
+      --transition-normal: 0.3s ease;
+      --transition-slow: 0.5s ease;
+    }
+
+    /* ============================================
+       RESET & BASE STYLES
+       ============================================ */
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--text);
+      background-color: var(--background);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--text);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: color var(--transition-fast);
+    }
+
+    ul, ol {
+      list-style: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    button {
+      font-family: var(--font-body);
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    /* ============================================
+       UTILITY CLASSES
+       ============================================ */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .section {
+      padding: 4rem 0;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-subtitle {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--light-text);
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .gold-accent {
+      color: var(--accent);
+    }
+
+    /* ============================================
+       NAVIGATION
+       ============================================ */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background-color: var(--white);
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow var(--transition-normal);
+    }
+
+    .navbar.scrolled {
+      box-shadow: var(--shadow-md);
+    }
+
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .navbar-brand {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .navbar-brand span {
+      color: var(--accent);
+    }
+
+    .navbar-toggle {
+      display: block;
+      font-size: 1.5rem;
+      color: var(--primary);
+      padding: 0.5rem;
+    }
+
+    .navbar-menu {
+      position: fixed;
+      top: 64px;
+      left: 0;
+      width: 100%;
+      background-color: var(--white);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height var(--transition-normal);
+      box-shadow: var(--shadow-md);
+    }
+
+    .navbar-menu.active {
+      max-height: 400px;
+    }
+
+    .navbar-menu ul {
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+      gap: 0.5rem;
+    }
+
+    .navbar-menu a {
+      display: block;
+      padding: 0.75rem 1rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text);
+      border-radius: var(--radius-sm);
+      transition: background-color var(--transition-fast), color var(--transition-fast);
+    }
+
+    .navbar-menu a:hover,
+    .navbar-menu a.active {
+      background-color: rgba(139, 0, 0, 0.08);
+      color: var(--primary);
+    }
+
+    /* ============================================
+       HERO SECTION
+       ============================================ */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding-top: 64px;
+      position: relative;
+      background-color: var(--background);
+    }
+
+    /* ============================================
+       ABOUT SECTION
+       ============================================ */
+    #about {
+      background-color: var(--white);
+    }
+
+    /* ============================================
+       FACILITIES SECTION
+       ============================================ */
+    #facilities {
+      background-color: var(--background);
+    }
+
+    /* ============================================
+       EVENTS SECTION
+       ============================================ */
+    #events {
+      background-color: var(--white);
+    }
+
+    /* ============================================
+       SERVICES SECTION
+       ============================================ */
+    #services {
+      background-color: var(--background);
+    }
+
+    /* ============================================
+       GALLERY SECTION
+       ============================================ */
+    #gallery {
+      background-color: var(--white);
+    }
+
+    /* ============================================
+       TESTIMONIALS SECTION
+       ============================================ */
+    #testimonials {
+      background-color: var(--background);
+    }
+
+    /* ============================================
+       FAQ SECTION
+       ============================================ */
+    #faq {
+      background-color: var(--white);
+    }
+
+    /* ============================================
+       CONTACT SECTION
+       ============================================ */
+    #contact {
+      background-color: var(--background);
+    }
+
+    /* ============================================
+       FOOTER
+       ============================================ */
+    .footer {
+      background-color: var(--primary);
+      color: var(--white);
+      padding: 3rem 0 1.5rem;
+    }
+
+    .footer a {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .footer a:hover {
+      color: var(--accent);
+    }
+
+    /* ============================================
+       TABLET & DESKTOP BREAKPOINTS
+       ============================================ */
+    @media (min-width: 768px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+
+      .section {
+        padding: 5rem 0;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+      }
+
+      .navbar-toggle {
+        display: none;
+      }
+
+      .navbar-menu {
+        position: static;
+        max-height: none;
+        overflow: visible;
+        box-shadow: none;
+        background: transparent;
+        width: auto;
+      }
+
+      .navbar-menu ul {
+        flex-direction: row;
+        padding: 0;
+        gap: 0;
+      }
+
+      .navbar-menu a {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+      }
+
+      .navbar-menu a:hover,
+      .navbar-menu a.active {
+        background-color: transparent;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .container {
+        padding: 0 2rem;
+      }
+
+      .section {
+        padding: 6rem 0;
+      }
+
+      .section-title {
+        font-size: 3rem;
+      }
+
+      .navbar .container {
+        height: 72px;
+      }
+
+      .navbar-brand {
+        font-size: 1.5rem;
+      }
+
+      .navbar-menu a {
+        padding: 0.5rem 1.25rem;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================
+       1. NAVIGATION BAR
+       ============================================ -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="#home" class="navbar-brand">
+        Rajeshwar <span>Marriage Hall</span>
+      </a>
+      <button class="navbar-toggle" id="navbarToggle" aria-label="Toggle navigation menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="navbar-menu" id="navbarMenu">
+        <ul>
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#facilities">Facilities</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================
+       2. HERO SECTION
+       ============================================ -->
+  <section class="hero" id="home">
+    <div class="container">
+      <!-- Hero content will go here -->
+    </div>
+  </section>
+
+  <!-- ============================================
+       3. ABOUT SECTION
+       ============================================ -->
+  <section class="section" id="about">
+    <div class="container">
+      <!-- About content will go here -->
+    </div>
+  </section>
+
+  <!-- ============================================
+       4. FACILITIES SECTION
+       ============================================ -->
+  <section class="section" id="facilities">
+    <div class="container">
+      <!-- Facilities content will go here -->
+    </div>
+  </section>
+
+  <!-- ============================================
+       5. EVENTS SECTION
+       ============================================ -->
+  <section class="section" id="events">
+    <div class="container">
+      <!-- Events content will go here -->
+    </div>
+  </section>
+
+  <!-- ============================================
+       6. SERVICES SECTION
+       ============================================ -->
+  <section class="section" id="services">
+    <div class="container">
+      <!-- Services content will go here -->
+    </div>
+  </section>
+
+  <!-- ============================================
+       7. GALLERY SECTION
+       ============================================ -->
+  <section class="section" id="gallery">
+    <div class="container">
+      <!-- Gallery content will go here -->
+    </div>
+  </section>
+
+  <!-- ============================================
+       8. TESTIMONIALS SECTION
+       ============================================ -->
+  <section class="section" id="testimonials">
+    <div class="container">
+      <!-- Testimonials content will go here -->
+    </div>
+  </section>
+
+  <!-- ============================================
+       9. FAQ SECTION
+       ============================================ -->
+  <section class="section" id="faq">
+    <div class="container">
+      <!-- FAQ content will go here -->
+    </div>
+  </section>
+
+  <!-- ============================================
+       10. CONTACT SECTION
+       ============================================ -->
+  <section class="section" id="contact">
+    <div class="container">
+      <!-- Contact content will go here -->
+    </div>
+  </section>
+
+  <!-- ============================================
+       11. FOOTER
+       ============================================ -->
+  <footer class="footer">
+    <div class="container">
+      <!-- Footer content will go here -->
+    </div>
+  </footer>
+
+  <!-- ============================================
+       JAVASCRIPT
+       ============================================ -->
+  <script>
+    (function() {
+      'use strict';
+
+      // DOM Elements
+      const navbar = document.getElementById('navbar');
+      const navbarToggle = document.getElementById('navbarToggle');
+      const navbarMenu = document.getElementById('navbarMenu');
+      const navLinks = document.querySelectorAll('.navbar-menu a');
+
+      // Toggle mobile navigation menu
+      navbarToggle.addEventListener('click', function() {
+        navbarMenu.classList.toggle('active');
+        const icon = navbarToggle.querySelector('i');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-times');
+      });
+
+      // Close mobile menu when a link is clicked
+      navLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+          navbarMenu.classList.remove('active');
+          const icon = navbarToggle.querySelector('i');
+          icon.classList.add('fa-bars');
+          icon.classList.remove('fa-times');
+        });
+      });
+
+      // Add scrolled class to navbar on scroll
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      });
+
+      // Highlight active nav link based on scroll position
+      const sections = document.querySelectorAll('section[id]');
+
+      window.addEventListener('scroll', function() {
+        let current = '';
+        sections.forEach(function(section) {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+          if (window.scrollY >= sectionTop - 100) {
+            current = section.getAttribute('id');
+          }
+        });
+
+        navLinks.forEach(function(link) {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + current) {
+            link.classList.add('active');
+          }
+        });
+      });
+
+    })();
+  </script>
+
+</body>
+</html>
