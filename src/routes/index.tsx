@@ -1,29 +1,678 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect } from "react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Your App" },
-      { name: "description", content: "Replace this with a one-sentence description of your app." },
-      { property: "og:title", content: "Your App" },
-      { property: "og:description", content: "Replace this with a one-sentence description of your app." },
+      { title: "Rajeshwar Marriage Hall - Bihta, Bihar" },
+      { name: "description", content: "Rajeshwar Marriage Hall - Premier wedding venue in Bihta, Bihar, India" },
     ],
   }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
+  useEffect(() => {
+    // Mobile menu toggle
+    const navbarToggle = document.getElementById("navbarToggle");
+    const navbarMenu = document.getElementById("navbarMenu");
+    const allNavLinks = document.querySelectorAll(".navbar-menu a");
+    const navTextLinks = document.querySelectorAll(".navbar-menu a:not(.btn-book-now)");
+    const navbar = document.getElementById("navbar");
+
+    function toggleMenu() {
+      navbarMenu?.classList.toggle("active");
+      const icon = navbarToggle?.querySelector("i");
+      if (icon) {
+        icon.classList.toggle("fa-bars");
+        icon.classList.toggle("fa-times");
+      }
+    }
+
+    function closeMenu() {
+      navbarMenu?.classList.remove("active");
+      const icon = navbarToggle?.querySelector("i");
+      if (icon) {
+        icon.classList.add("fa-bars");
+        icon.classList.remove("fa-times");
+      }
+    }
+
+    function handleScroll() {
+      // Navbar shadow on scroll
+      if (window.scrollY > 50) {
+        navbar?.classList.add("scrolled");
+      } else {
+        navbar?.classList.remove("scrolled");
+      }
+
+      // Active link highlighting
+      const sections = document.querySelectorAll("section[id]");
+      let current = "";
+      sections.forEach((section) => {
+        const sectionTop = (section as HTMLElement).offsetTop;
+        if (window.scrollY >= sectionTop - 100) {
+          current = section.getAttribute("id") || "";
+        }
+      });
+
+      navTextLinks.forEach((link) => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === "#" + current) {
+          link.classList.add("active");
+        }
+      });
+    }
+
+    navbarToggle?.addEventListener("click", toggleMenu);
+    allNavLinks.forEach((link) => link.addEventListener("click", closeMenu));
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      navbarToggle?.removeEventListener("click", toggleMenu);
+      allNavLinks.forEach((link) => link.removeEventListener("click", closeMenu));
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <>
+      <style>{`
+        :root {
+          --primary: #8B0000;
+          --accent: #C9A84C;
+          --background: #FFFDF7;
+          --text: #1A1A1A;
+          --light-text: #5A5A5A;
+          --white: #FFFFFF;
+          --font-heading: 'Playfair Display', serif;
+          --font-body: 'Poppins', sans-serif;
+          --radius-sm: 4px;
+          --radius-md: 8px;
+          --radius-lg: 12px;
+          --radius-xl: 16px;
+          --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+          --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+          --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+          --transition-fast: 0.15s ease;
+          --transition-normal: 0.3s ease;
+          --transition-slow: 0.5s ease;
+        }
+
+        *, *::before, *::after {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        html {
+          scroll-behavior: smooth;
+          font-size: 16px;
+        }
+
+        body {
+          font-family: var(--font-body);
+          color: var(--text);
+          background-color: var(--background);
+          line-height: 1.6;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+          font-family: var(--font-heading);
+          font-weight: 700;
+          line-height: 1.2;
+          color: var(--text);
+        }
+
+        a {
+          text-decoration: none;
+          color: inherit;
+          transition: color var(--transition-fast);
+        }
+
+        ul, ol { list-style: none; }
+
+        img {
+          max-width: 100%;
+          height: auto;
+          display: block;
+        }
+
+        button {
+          font-family: var(--font-body);
+          cursor: pointer;
+          border: none;
+          background: none;
+        }
+
+        .container {
+          width: 100%;
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 1rem;
+        }
+
+        .section { padding: 4rem 0; }
+
+        .section-title {
+          font-family: var(--font-heading);
+          font-size: 2rem;
+          font-weight: 700;
+          color: var(--primary);
+          text-align: center;
+          margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+          font-family: var(--font-body);
+          font-size: 0.95rem;
+          color: var(--light-text);
+          text-align: center;
+          margin-bottom: 2.5rem;
+        }
+
+        .gold-accent { color: var(--accent); }
+
+        .navbar {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          z-index: 1000;
+          background-color: var(--primary);
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .navbar.scrolled {
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .navbar .container {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          height: 70px;
+        }
+
+        .navbar-brand {
+          display: flex;
+          flex-direction: column;
+          line-height: 1.1;
+        }
+
+        .navbar-brand-name {
+          font-family: var(--font-heading);
+          font-size: 1.35rem;
+          font-weight: 700;
+          color: var(--accent);
+          letter-spacing: 0.5px;
+        }
+
+        .navbar-brand-sub {
+          font-family: var(--font-body);
+          font-size: 0.7rem;
+          font-weight: 400;
+          color: var(--white);
+          letter-spacing: 1.5px;
+          text-transform: uppercase;
+        }
+
+        .navbar-toggle {
+          display: block;
+          font-size: 1.5rem;
+          color: var(--white);
+          padding: 0.5rem;
+        }
+
+        .navbar-menu {
+          position: fixed;
+          top: 70px;
+          left: 0;
+          width: 100%;
+          background-color: var(--primary);
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height var(--transition-normal);
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .navbar-menu.active { max-height: 450px; }
+
+        .navbar-menu ul {
+          display: flex;
+          flex-direction: column;
+          padding: 1rem;
+          gap: 0;
+        }
+
+        .navbar-menu a {
+          display: block;
+          padding: 0.85rem 1rem;
+          font-size: 0.95rem;
+          font-weight: 500;
+          color: var(--white);
+          border-radius: var(--radius-sm);
+          transition: color var(--transition-fast);
+        }
+
+        .navbar-menu a:hover,
+        .navbar-menu a.active { color: var(--accent); }
+
+        .navbar-menu a.active { font-weight: 600; }
+
+        .btn-book-now {
+          display: inline-block;
+          padding: 0.6rem 1.4rem;
+          background-color: var(--accent);
+          color: var(--primary) !important;
+          font-family: var(--font-body);
+          font-size: 0.85rem;
+          font-weight: 600;
+          border-radius: var(--radius-md);
+          transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+          text-align: center;
+          margin-top: 0.5rem;
+        }
+
+        .btn-book-now:hover {
+          transform: translateY(-1px);
+          box-shadow: 0 4px 12px rgba(201, 168, 76, 0.35);
+        }
+
+        .hero {
+          min-height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          padding-top: 70px;
+          position: relative;
+          background-color: #2C0A0A;
+        }
+
+        .hero::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            180deg,
+            rgba(139, 0, 0, 0.85) 0%,
+            rgba(139, 0, 0, 0.75) 50%,
+            rgba(139, 0, 0, 0.85) 100%
+          );
+          z-index: 1;
+        }
+
+        .hero .container {
+          position: relative;
+          z-index: 2;
+        }
+
+        .hero-welcome {
+          font-family: var(--font-body);
+          font-size: 0.75rem;
+          font-weight: 500;
+          color: var(--accent);
+          text-transform: uppercase;
+          letter-spacing: 3px;
+          margin-bottom: 0.75rem;
+        }
+
+        .hero-heading {
+          font-family: var(--font-heading);
+          font-size: 2.25rem;
+          font-weight: 800;
+          color: var(--white);
+          line-height: 1.15;
+          margin-bottom: 0.75rem;
+        }
+
+        .hero-hindi {
+          font-family: var(--font-body);
+          font-size: 1.15rem;
+          font-weight: 500;
+          color: var(--white);
+          margin-bottom: 0.5rem;
+          opacity: 0.95;
+        }
+
+        .hero-tagline {
+          font-family: var(--font-heading);
+          font-size: 1rem;
+          font-weight: 400;
+          font-style: italic;
+          color: var(--accent);
+          margin-bottom: 1.25rem;
+        }
+
+        .hero-location {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.4rem;
+          font-family: var(--font-body);
+          font-size: 0.8rem;
+          font-weight: 400;
+          color: rgba(255, 255, 255, 0.85);
+          margin-bottom: 1.75rem;
+        }
+
+        .hero-location i {
+          color: var(--accent);
+          font-size: 0.9rem;
+        }
+
+        .hero-buttons {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 0.75rem;
+        }
+
+        .hero-btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.5rem;
+          padding: 0.85rem 2rem;
+          font-family: var(--font-body);
+          font-size: 0.9rem;
+          font-weight: 600;
+          border-radius: var(--radius-lg);
+          transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+          min-width: 180px;
+        }
+
+        .hero-btn:hover { transform: translateY(-2px); }
+
+        .hero-btn-primary {
+          background-color: var(--accent);
+          color: var(--primary);
+        }
+
+        .hero-btn-primary:hover {
+          box-shadow: 0 6px 20px rgba(201, 168, 76, 0.4);
+        }
+
+        .hero-btn-secondary {
+          background-color: transparent;
+          color: var(--white);
+          border: 2px solid var(--white);
+        }
+
+        .hero-btn-secondary:hover {
+          background-color: var(--white);
+          color: var(--primary);
+          box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+        }
+
+        .hero-scroll {
+          position: absolute;
+          bottom: 1.5rem;
+          left: 50%;
+          transform: translateX(-50%);
+          z-index: 2;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 0.5rem;
+          cursor: pointer;
+        }
+
+        .hero-scroll span {
+          font-family: var(--font-body);
+          font-size: 0.65rem;
+          font-weight: 500;
+          color: rgba(255, 255, 255, 0.6);
+          text-transform: uppercase;
+          letter-spacing: 2px;
+        }
+
+        .hero-scroll i {
+          font-size: 1.1rem;
+          color: var(--accent);
+          animation: bounceDown 2s ease-in-out infinite;
+        }
+
+        @keyframes bounceDown {
+          0%, 100% { transform: translateY(0); opacity: 1; }
+          50% { transform: translateY(8px); opacity: 0.5; }
+        }
+
+        #about { background-color: var(--white); }
+        #facilities { background-color: var(--background); }
+        #events { background-color: var(--white); }
+        #services { background-color: var(--background); }
+        #gallery { background-color: var(--white); }
+        #testimonials { background-color: var(--background); }
+        #faq { background-color: var(--white); }
+        #contact { background-color: var(--background); }
+
+        .footer {
+          background-color: var(--primary);
+          color: var(--white);
+          padding: 3rem 0 1.5rem;
+        }
+
+        .footer a {
+          color: rgba(255, 255, 255, 0.8);
+        }
+
+        .footer a:hover { color: var(--accent); }
+
+        @media (min-width: 768px) {
+          .container { padding: 0 1.5rem; }
+          .section { padding: 5rem 0; }
+          .section-title { font-size: 2.5rem; }
+
+          .navbar-toggle { display: none; }
+
+          .navbar-menu {
+            position: static;
+            max-height: none;
+            overflow: visible;
+            box-shadow: none;
+            background: transparent;
+            width: auto;
+          }
+
+          .navbar-menu ul {
+            flex-direction: row;
+            align-items: center;
+            padding: 0;
+            gap: 0.25rem;
+          }
+
+          .navbar-menu a {
+            padding: 0.5rem 0.85rem;
+            font-size: 0.85rem;
+          }
+
+          .navbar-menu a:hover,
+          .navbar-menu a.active {
+            color: var(--accent);
+            background-color: transparent;
+          }
+
+          .btn-book-now {
+            margin-top: 0;
+            margin-left: 0.5rem;
+          }
+
+          .hero-welcome {
+            font-size: 0.85rem;
+            letter-spacing: 4px;
+          }
+
+          .hero-heading { font-size: 3.25rem; }
+          .hero-hindi { font-size: 1.35rem; }
+          .hero-tagline { font-size: 1.2rem; }
+          .hero-location { font-size: 0.9rem; }
+
+          .hero-buttons {
+            flex-direction: row;
+            justify-content: center;
+            gap: 1rem;
+          }
+
+          .hero-btn {
+            padding: 0.95rem 2.25rem;
+            font-size: 0.95rem;
+            min-width: 200px;
+          }
+        }
+
+        @media (min-width: 1024px) {
+          .container { padding: 0 2rem; }
+          .section { padding: 6rem 0; }
+          .section-title { font-size: 3rem; }
+
+          .navbar .container { height: 80px; }
+          .navbar-brand-name { font-size: 1.6rem; }
+          .navbar-brand-sub { font-size: 0.75rem; }
+
+          .navbar-menu a {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+          }
+
+          .btn-book-now {
+            padding: 0.65rem 1.6rem;
+            font-size: 0.9rem;
+            margin-left: 0.75rem;
+          }
+
+          .hero { padding-top: 80px; }
+
+          .hero-welcome {
+            font-size: 0.9rem;
+            letter-spacing: 5px;
+          }
+
+          .hero-heading { font-size: 4rem; }
+          .hero-hindi { font-size: 1.5rem; }
+          .hero-tagline { font-size: 1.35rem; }
+
+          .hero-scroll { bottom: 2rem; }
+        }
+      `}</style>
+
+      {/* Navigation */}
+      <nav className="navbar" id="navbar">
+        <div className="container">
+          <a href="#home" className="navbar-brand">
+            <span className="navbar-brand-name">Rajeshwar</span>
+            <span className="navbar-brand-sub">Marriage Hall</span>
+          </a>
+          <button className="navbar-toggle" id="navbarToggle" aria-label="Toggle navigation menu">
+            <i className="fas fa-bars"></i>
+          </button>
+          <div className="navbar-menu" id="navbarMenu">
+            <ul>
+              <li><a href="#home" className="active">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#facilities">Facilities</a></li>
+              <li><a href="#events">Events</a></li>
+              <li><a href="#gallery">Gallery</a></li>
+              <li><a href="#contact">Contact</a></li>
+              <li><a href="#contact" className="btn-book-now">Book Now</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="hero" id="home">
+        <div className="container">
+          <p className="hero-welcome">Welcome to</p>
+          <h1 className="hero-heading">Rajeshwar Marriage Hall</h1>
+          <p className="hero-hindi">जहाँ हर जश्न एक याद बन जाता है</p>
+          <p className="hero-tagline">Where Every Celebration Becomes a Memory</p>
+          <p className="hero-location">
+            <i className="fas fa-map-marker-alt"></i>
+            Bishunpura South Side, Near Bajrangbali Mandir, Bihta, Bihar
+          </p>
+          <div className="hero-buttons">
+            <a href="tel:+916207928461" className="hero-btn hero-btn-primary">
+              <i className="fas fa-phone"></i> Call Now
+            </a>
+            <a href="https://wa.me/916207928461" target="_blank" rel="noopener noreferrer" className="hero-btn hero-btn-secondary">
+              <i className="fab fa-whatsapp"></i> WhatsApp Us
+            </a>
+          </div>
+        </div>
+        <a href="#about" className="hero-scroll" aria-label="Scroll down">
+          <span>Scroll</span>
+          <i className="fas fa-chevron-down"></i>
+        </a>
+      </section>
+
+      {/* About Section */}
+      <section className="section" id="about">
+        <div className="container">
+          {/* About content will go here */}
+        </div>
+      </section>
+
+      {/* Facilities Section */}
+      <section className="section" id="facilities">
+        <div className="container">
+          {/* Facilities content will go here */}
+        </div>
+      </section>
+
+      {/* Events Section */}
+      <section className="section" id="events">
+        <div className="container">
+          {/* Events content will go here */}
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="section" id="services">
+        <div className="container">
+          {/* Services content will go here */}
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section className="section" id="gallery">
+        <div className="container">
+          {/* Gallery content will go here */}
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="section" id="testimonials">
+        <div className="container">
+          {/* Testimonials content will go here */}
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="section" id="faq">
+        <div className="container">
+          {/* FAQ content will go here */}
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="section" id="contact">
+        <div className="container">
+          {/* Contact content will go here */}
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="footer">
+        <div className="container">
+          {/* Footer content will go here */}
+        </div>
+      </footer>
+    </>
   );
 }

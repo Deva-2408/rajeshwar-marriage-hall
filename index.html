@@ -251,7 +251,218 @@
       text-align: center;
       padding-top: 70px;
       position: relative;
-      background-color: var(--background);
+      background-color: #2C0A0A;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        180deg,
+        rgba(139, 0, 0, 0.85) 0%,
+        rgba(139, 0, 0, 0.75) 50%,
+        rgba(139, 0, 0, 0.85) 100%
+      );
+      z-index: 1;
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-welcome {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-heading {
+      font-family: var(--font-heading);
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-hindi {
+      font-family: var(--font-body);
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+      opacity: 0.95;
+    }
+
+    .hero-tagline {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-location {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-location i {
+      color: var(--accent);
+      font-size: 0.9rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .hero-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.85rem 2rem;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-radius: var(--radius-lg);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+      min-width: 180px;
+    }
+
+    .hero-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .hero-btn-primary {
+      background-color: var(--accent);
+      color: var(--primary);
+    }
+
+    .hero-btn-primary:hover {
+      box-shadow: 0 6px 20px rgba(201, 168, 76, 0.4);
+    }
+
+    .hero-btn-secondary {
+      background-color: transparent;
+      color: var(--white);
+      border: 2px solid var(--white);
+    }
+
+    .hero-btn-secondary:hover {
+      background-color: var(--white);
+      color: var(--primary);
+      box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+    }
+
+    .hero-scroll span {
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.6);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .hero-scroll i {
+      font-size: 1.1rem;
+      color: var(--accent);
+      animation: bounceDown 2s ease-in-out infinite;
+    }
+
+    @keyframes bounceDown {
+      0%, 100% { transform: translateY(0); opacity: 1; }
+      50% { transform: translateY(8px); opacity: 0.5; }
+    }
+
+    @media (min-width: 768px) {
+      .hero-welcome {
+        font-size: 0.85rem;
+        letter-spacing: 4px;
+      }
+
+      .hero-heading {
+        font-size: 3.25rem;
+      }
+
+      .hero-hindi {
+        font-size: 1.35rem;
+      }
+
+      .hero-tagline {
+        font-size: 1.2rem;
+      }
+
+      .hero-location {
+        font-size: 0.9rem;
+      }
+
+      .hero-buttons {
+        flex-direction: row;
+        justify-content: center;
+        gap: 1rem;
+      }
+
+      .hero-btn {
+        padding: 0.95rem 2.25rem;
+        font-size: 0.95rem;
+        min-width: 200px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .hero-welcome {
+        font-size: 0.9rem;
+        letter-spacing: 5px;
+      }
+
+      .hero-heading {
+        font-size: 4rem;
+      }
+
+      .hero-hindi {
+        font-size: 1.5rem;
+      }
+
+      .hero-tagline {
+        font-size: 1.35rem;
+      }
+
+      .hero-scroll {
+        bottom: 2rem;
+      }
     }
 
     /* ============================================
@@ -455,8 +666,27 @@
        ============================================ -->
   <section class="hero" id="home">
     <div class="container">
-      <!-- Hero content will go here -->
+      <p class="hero-welcome">Welcome to</p>
+      <h1 class="hero-heading">Rajeshwar Marriage Hall</h1>
+      <p class="hero-hindi">जहाँ हर जश्न एक याद बन जाता है</p>
+      <p class="hero-tagline">Where Every Celebration Becomes a Memory</p>
+      <p class="hero-location">
+        <i class="fas fa-map-marker-alt"></i>
+        Bishunpura South Side, Near Bajrangbali Mandir, Bihta, Bihar
+      </p>
+      <div class="hero-buttons">
+        <a href="tel:+916207928461" class="hero-btn hero-btn-primary">
+          <i class="fas fa-phone"></i> Call Now
+        </a>
+        <a href="https://wa.me/916207928461" target="_blank" class="hero-btn hero-btn-secondary">
+          <i class="fab fa-whatsapp"></i> WhatsApp Us
+        </a>
+      </div>
     </div>
+    <a href="#about" class="hero-scroll" aria-label="Scroll down">
+      <span>Scroll</span>
+      <i class="fas fa-chevron-down"></i>
+    </a>
   </section>
 
   <!-- ============================================
