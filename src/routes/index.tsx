@@ -555,6 +555,52 @@ function Index() {
           letter-spacing: 0.5px;
         }
 
+        /* Facilities Section */
+        .facilities-wrapper { text-align: center; margin-bottom: 2.5rem; }
+
+        .facilities-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1.25rem;
+        }
+
+        .facility-card {
+          background-color: var(--white);
+          border: 1px solid rgba(201, 168, 76, 0.3);
+          border-radius: var(--radius-lg);
+          padding: 1.5rem 1rem;
+          text-align: center;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+          transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+        }
+
+        .facility-card:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+          border-color: var(--accent);
+        }
+
+        .facility-icon {
+          font-size: 1.75rem;
+          color: var(--accent);
+          margin-bottom: 0.75rem;
+        }
+
+        .facility-name {
+          font-family: var(--font-body);
+          font-size: 0.95rem;
+          font-weight: 600;
+          color: var(--text);
+          margin-bottom: 0.35rem;
+        }
+
+        .facility-desc {
+          font-family: var(--font-body);
+          font-size: 0.8rem;
+          color: var(--light-text);
+          line-height: 1.5;
+        }
+
         @media (min-width: 768px) {
           .container { padding: 0 1.5rem; }
           .section { padding: 5rem 0; }
@@ -629,6 +675,16 @@ function Index() {
 
           .about-content h3 { font-size: 1.75rem; }
           .about-content p { font-size: 1rem; }
+
+          .facilities-grid {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+          }
+
+          .facility-card { padding: 2rem 1.25rem; }
+          .facility-icon { font-size: 2rem; }
+          .facility-name { font-size: 1.05rem; }
+          .facility-desc { font-size: 0.85rem; }
         }
 
         @media (min-width: 1024px) {
@@ -667,6 +723,12 @@ function Index() {
           .about-grid { gap: 4rem; }
           .about-content h3 { font-size: 2rem; }
           .about-content p { font-size: 1.05rem; }
+
+          .facilities-grid { gap: 2rem; }
+          .facility-card { padding: 2.25rem 1.5rem; }
+          .facility-icon { font-size: 2.25rem; }
+          .facility-name { font-size: 1.1rem; }
+          .facility-desc { font-size: 0.9rem; }
         }
       `}</style>
 
@@ -754,7 +816,73 @@ function Index() {
       {/* Facilities Section */}
       <section className="section" id="facilities">
         <div className="container">
-          {/* Facilities content will go here */}
+          <div className="facilities-wrapper">
+            <h2 className="section-title">Our Facilities</h2>
+            <div className="about-divider"></div>
+            <p className="about-hindi">हमारी सुविधाएँ</p>
+          </div>
+          <div className="facilities-grid">
+            <div className="facility-card">
+              <div className="facility-icon"><i className="fas fa-snowflake"></i></div>
+              <div className="facility-name">Air Conditioned Hall</div>
+              <div className="facility-desc">मुख्य हॉल में AC</div>
+            </div>
+            <div className="facility-card">
+              <div className="facility-icon"><i className="fas fa-bolt"></i></div>
+              <div className="facility-name">24/7 Generator Backup</div>
+              <div className="facility-desc">24 घंटे जनरेटर बैकअप</div>
+            </div>
+            <div className="facility-card">
+              <div className="facility-icon"><i className="fas fa-car"></i></div>
+              <div className="facility-name">Free Parking</div>
+              <div className="facility-desc">मुफ़्त पार्किंग सुविधा</div>
+            </div>
+            <div className="facility-card">
+              <div className="facility-icon"><i className="fas fa-lightbulb"></i></div>
+              <div className="facility-name">Decorative Lighting</div>
+              <div className="facility-desc">सजावटी रोशनी</div>
+            </div>
+            <div className="facility-card">
+              <div className="facility-icon"><i className="fas fa-utensils"></i></div>
+              <div className="facility-name">In-House Catering</div>
+              <div className="facility-desc">इन-हाउस कैटरिंग</div>
+            </div>
+            <div className="facility-card">
+              <div className="facility-icon"><i className="fas fa-paint-brush"></i></div>
+              <div className="facility-name">Decoration Services</div>
+              <div className="facility-desc">सजावट सेवाएँ</div>
+            </div>
+            <div className="facility-card">
+              <div className="facility-icon"><i className="fas fa-music"></i></div>
+              <div className="facility-name">Sound System Available</div>
+              <div className="facility-desc">साउंड सिस्टम उपलब्ध</div>
+            </div>
+            <div className="facility-card">
+              <div className="facility-icon"><i className="fas fa-person-dress"></i></div>
+              <div className="facility-name">Bridal Room</div>
+              <div className="facility-desc">दुल्हन के लिए विशेष कक्ष</div>
+            </div>
+            <div className="facility-card">
+              <div className="facility-icon"><i className="fas fa-restroom"></i></div>
+              <div className="facility-name">Separate Washrooms</div>
+              <div className="facility-desc">अलग शौचालय सुविधा</div>
+            </div>
+            <div className="facility-card">
+              <div className="facility-icon"><i className="fas fa-water"></i></div>
+              <div className="facility-name">Drinking Water</div>
+              <div className="facility-desc">पीने का पानी उपलब्ध</div>
+            </div>
+            <div className="facility-card">
+              <div className="facility-icon"><i className="fas fa-tree"></i></div>
+              <div className="facility-name">Lawn Area</div>
+              <div className="facility-desc">लॉन क्षेत्र उपलब्ध</div>
+            </div>
+            <div className="facility-card">
+              <div className="facility-icon"><i className="fas fa-door-open"></i></div>
+              <div className="facility-name">Grand Entrance Gate</div>
+              <div className="facility-desc">भव्य प्रवेश द्वार</div>
+            </div>
+          </div>
         </div>
       </section>
 
