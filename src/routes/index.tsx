@@ -615,6 +615,20 @@ function Index() {
             font-size: 0.95rem;
             min-width: 200px;
           }
+
+          .about-grid {
+            flex-direction: row;
+            align-items: stretch;
+            gap: 3rem;
+          }
+
+          .about-image-placeholder,
+          .about-content {
+            flex: 1;
+          }
+
+          .about-content h3 { font-size: 1.75rem; }
+          .about-content p { font-size: 1rem; }
         }
 
         @media (min-width: 1024px) {
@@ -649,6 +663,10 @@ function Index() {
           .hero-tagline { font-size: 1.35rem; }
 
           .hero-scroll { bottom: 2rem; }
+
+          .about-grid { gap: 4rem; }
+          .about-content h3 { font-size: 2rem; }
+          .about-content p { font-size: 1.05rem; }
         }
       `}</style>
 
