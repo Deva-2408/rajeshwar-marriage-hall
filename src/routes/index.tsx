@@ -555,6 +555,52 @@ function Index() {
           letter-spacing: 0.5px;
         }
 
+        /* Facilities Section */
+        .facilities-wrapper { text-align: center; margin-bottom: 2.5rem; }
+
+        .facilities-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1.25rem;
+        }
+
+        .facility-card {
+          background-color: var(--white);
+          border: 1px solid rgba(201, 168, 76, 0.3);
+          border-radius: var(--radius-lg);
+          padding: 1.5rem 1rem;
+          text-align: center;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+          transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+        }
+
+        .facility-card:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+          border-color: var(--accent);
+        }
+
+        .facility-icon {
+          font-size: 1.75rem;
+          color: var(--accent);
+          margin-bottom: 0.75rem;
+        }
+
+        .facility-name {
+          font-family: var(--font-body);
+          font-size: 0.95rem;
+          font-weight: 600;
+          color: var(--text);
+          margin-bottom: 0.35rem;
+        }
+
+        .facility-desc {
+          font-family: var(--font-body);
+          font-size: 0.8rem;
+          color: var(--light-text);
+          line-height: 1.5;
+        }
+
         @media (min-width: 768px) {
           .container { padding: 0 1.5rem; }
           .section { padding: 5rem 0; }
