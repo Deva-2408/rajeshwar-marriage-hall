@@ -445,8 +445,8 @@ function Index() {
 
         #about { background-color: var(--white); }
         #facilities { background-color: var(--background); }
-        #events { background-color: var(--white); }
-        #services { background-color: var(--background); }
+        #events { background-color: var(--primary); }
+        #services { background-color: var(--white); }
         #gallery { background-color: var(--white); }
         #testimonials { background-color: var(--background); }
         #faq { background-color: var(--white); }
@@ -601,6 +601,120 @@ function Index() {
           line-height: 1.5;
         }
 
+        /* Events Section */
+        .events-wrapper { text-align: center; margin-bottom: 2.5rem; }
+
+        .events-title {
+          font-family: var(--font-heading);
+          font-size: 2rem;
+          font-weight: 700;
+          color: var(--white);
+          text-align: center;
+          margin-bottom: 0.5rem;
+        }
+
+        .events-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1.25rem;
+          margin-bottom: 2rem;
+        }
+
+        .event-card {
+          background-color: rgba(255, 255, 255, 0.06);
+          border: 1px solid rgba(201, 168, 76, 0.2);
+          border-radius: var(--radius-lg);
+          padding: 1.5rem 1rem;
+          text-align: center;
+          transition: transform var(--transition-fast), border-color var(--transition-fast);
+        }
+
+        .event-card:hover {
+          transform: translateY(-4px);
+          border-color: var(--accent);
+        }
+
+        .event-icon {
+          font-size: 1.75rem;
+          color: var(--accent);
+          margin-bottom: 0.75rem;
+        }
+
+        .event-name {
+          font-family: var(--font-body);
+          font-size: 0.95rem;
+          font-weight: 600;
+          color: var(--white);
+          margin-bottom: 0.35rem;
+        }
+
+        .event-hindi {
+          font-family: var(--font-body);
+          font-size: 0.8rem;
+          color: rgba(255, 255, 255, 0.7);
+        }
+
+        .events-capacity {
+          font-family: var(--font-body);
+          font-size: 0.9rem;
+          font-style: italic;
+          color: var(--accent);
+          text-align: center;
+          line-height: 1.6;
+        }
+
+        /* Services Section */
+        .services-wrapper { text-align: center; margin-bottom: 2.5rem; }
+
+        .services-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .service-card {
+          background-color: var(--white);
+          border-top: 3px solid var(--accent);
+          border-radius: var(--radius-lg);
+          padding: 1.75rem 1.25rem;
+          text-align: center;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+          transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+        }
+
+        .service-card:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .service-icon {
+          font-size: 1.75rem;
+          color: var(--accent);
+          margin-bottom: 0.75rem;
+        }
+
+        .service-title {
+          font-family: var(--font-body);
+          font-size: 1rem;
+          font-weight: 600;
+          color: var(--text);
+          margin-bottom: 0.5rem;
+        }
+
+        .service-title-hindi {
+          font-family: var(--font-body);
+          font-size: 0.85rem;
+          color: var(--accent);
+          margin-bottom: 0.75rem;
+        }
+
+        .service-desc {
+          font-family: var(--font-body);
+          font-size: 0.9rem;
+          color: var(--light-text);
+          line-height: 1.6;
+        }
+
         @media (min-width: 768px) {
           .container { padding: 0 1.5rem; }
           .section { padding: 5rem 0; }
@@ -685,6 +799,18 @@ function Index() {
           .facility-icon { font-size: 2rem; }
           .facility-name { font-size: 1.05rem; }
           .facility-desc { font-size: 0.85rem; }
+
+          .events-grid { grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+          .event-card { padding: 2rem 1.25rem; }
+          .event-icon { font-size: 2rem; }
+          .event-name { font-size: 1.05rem; }
+          .event-hindi { font-size: 0.85rem; }
+          .events-capacity { font-size: 1rem; }
+          .services-grid { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+          .service-card { padding: 2rem 1.25rem; }
+          .service-icon { font-size: 2rem; }
+          .service-title { font-size: 1.05rem; }
+          .service-desc { font-size: 0.9rem; }
         }
 
         @media (min-width: 1024px) {
@@ -729,6 +855,18 @@ function Index() {
           .facility-icon { font-size: 2.25rem; }
           .facility-name { font-size: 1.1rem; }
           .facility-desc { font-size: 0.9rem; }
+
+          .events-grid { gap: 2rem; }
+          .event-card { padding: 2.25rem 1.5rem; }
+          .event-icon { font-size: 2.25rem; }
+          .event-name { font-size: 1.1rem; }
+          .event-hindi { font-size: 0.9rem; }
+          .events-capacity { font-size: 1.05rem; }
+          .services-grid { gap: 2rem; }
+          .service-card { padding: 2.25rem 1.5rem; }
+          .service-icon { font-size: 2.25rem; }
+          .service-title { font-size: 1.1rem; }
+          .service-desc { font-size: 0.95rem; }
         }
       `}</style>
 
@@ -889,14 +1027,67 @@ function Index() {
       {/* Events Section */}
       <section className="section" id="events">
         <div className="container">
-          {/* Events content will go here */}
+          <div className="events-wrapper">
+            <h2 className="events-title">Events We Host</h2>
+            <div className="about-divider"></div>
+            <p className="about-hindi">हम किन आयोजनों के लिए उपलब्ध हैं</p>
+          </div>
+          <div className="events-grid">
+            <div className="event-card">
+              <div className="event-icon"><i className="fas fa-heart"></i></div>
+              <div className="event-name">Shaadi / Wedding</div>
+              <div className="event-hindi">शादी</div>
+            </div>
+            <div className="event-card">
+              <div className="event-icon"><i className="fas fa-champagne-glasses"></i></div>
+              <div className="event-name">Reception</div>
+              <div className="event-hindi">रिसेप्शन</div>
+            </div>
+            <div className="event-card">
+              <div className="event-icon"><i className="fas fa-ring"></i></div>
+              <div className="event-name">Engagement</div>
+              <div className="event-hindi">सगाई</div>
+            </div>
+            <div className="event-card">
+              <div className="event-icon"><i className="fas fa-cake-candles"></i></div>
+              <div className="event-name">Birthday Party</div>
+              <div className="event-hindi">जन्मदिन</div>
+            </div>
+          </div>
+          <p className="events-capacity">
+            Main Hall: ~100 Guests (Wedding Setup) | Dining Area: ~200 Guests | Lawn: 20-50 Guests
+          </p>
         </div>
       </section>
 
       {/* Services Section */}
       <section className="section" id="services">
         <div className="container">
-          {/* Services content will go here */}
+          <div className="services-wrapper">
+            <h2 className="section-title">Our Services</h2>
+            <div className="about-divider"></div>
+            <p className="about-hindi">हमारी सेवाएँ</p>
+          </div>
+          <div className="services-grid">
+            <div className="service-card">
+              <div className="service-icon"><i className="fas fa-utensils"></i></div>
+              <div className="service-title">In-House Catering</div>
+              <div className="service-title-hindi">इन-हाउस कैटरिंग</div>
+              <div className="service-desc">Delicious food prepared fresh for your guests. Outside caterers also welcome.</div>
+            </div>
+            <div className="service-card">
+              <div className="service-icon"><i className="fas fa-wand-sparkles"></i></div>
+              <div className="service-title">Decoration Services</div>
+              <div className="service-title-hindi">सजावट सेवाएँ</div>
+              <div className="service-desc">Beautiful hall decoration for every occasion. Bring your own decorator if you prefer.</div>
+            </div>
+            <div className="service-card">
+              <div className="service-icon"><i className="fas fa-music"></i></div>
+              <div className="service-title">Sound System</div>
+              <div className="service-title-hindi">साउंड सिस्टम</div>
+              <div className="service-desc">In-house sound system available. Outside DJ and sound arrangements also permitted.</div>
+            </div>
+          </div>
         </div>
       </section>
 
