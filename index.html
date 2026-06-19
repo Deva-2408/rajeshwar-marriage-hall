@@ -358,18 +358,25 @@
 
       .navbar-menu ul {
         flex-direction: row;
+        align-items: center;
         padding: 0;
-        gap: 0;
+        gap: 0.25rem;
       }
 
       .navbar-menu a {
-        padding: 0.5rem 1rem;
+        padding: 0.5rem 0.85rem;
         font-size: 0.85rem;
       }
 
       .navbar-menu a:hover,
       .navbar-menu a.active {
+        color: var(--accent);
         background-color: transparent;
+      }
+
+      .btn-book-now {
+        margin-top: 0;
+        margin-left: 0.5rem;
       }
     }
 
@@ -387,16 +394,26 @@
       }
 
       .navbar .container {
-        height: 72px;
+        height: 80px;
       }
 
-      .navbar-brand {
-        font-size: 1.5rem;
+      .navbar-brand-name {
+        font-size: 1.6rem;
+      }
+
+      .navbar-brand-sub {
+        font-size: 0.75rem;
       }
 
       .navbar-menu a {
-        padding: 0.5rem 1.25rem;
+        padding: 0.5rem 1rem;
         font-size: 0.9rem;
+      }
+
+      .btn-book-now {
+        padding: 0.65rem 1.6rem;
+        font-size: 0.9rem;
+        margin-left: 0.75rem;
       }
     }
   </style>
@@ -409,7 +426,8 @@
   <nav class="navbar" id="navbar">
     <div class="container">
       <a href="#home" class="navbar-brand">
-        Rajeshwar <span>Marriage Hall</span>
+        <span class="navbar-brand-name">Rajeshwar</span>
+        <span class="navbar-brand-sub">Marriage Hall</span>
       </a>
       <button class="navbar-toggle" id="navbarToggle" aria-label="Toggle navigation menu">
         <i class="fas fa-bars"></i>
@@ -420,11 +438,9 @@
           <li><a href="#about">About</a></li>
           <li><a href="#facilities">Facilities</a></li>
           <li><a href="#events">Events</a></li>
-          <li><a href="#services">Services</a></li>
           <li><a href="#gallery">Gallery</a></li>
-          <li><a href="#testimonials">Testimonials</a></li>
-          <li><a href="#faq">FAQ</a></li>
           <li><a href="#contact">Contact</a></li>
+          <li><a href="#contact" class="btn-book-now">Book Now</a></li>
         </ul>
       </div>
     </div>
