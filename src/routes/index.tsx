@@ -720,7 +720,7 @@ function Index() {
         </a>
       </section>
 
-      {/* About Section */}
+      {/* About Section — Rajeshwar Marriage Hall */}
       <section className="section" id="about">
         <div className="container">
           <div className="about-wrapper">
