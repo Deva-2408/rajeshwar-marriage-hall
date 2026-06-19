@@ -249,7 +249,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding-top: 64px;
+      padding-top: 70px;
       position: relative;
       background-color: var(--background);
     }
@@ -547,7 +547,8 @@
       const navbar = document.getElementById('navbar');
       const navbarToggle = document.getElementById('navbarToggle');
       const navbarMenu = document.getElementById('navbarMenu');
-      const navLinks = document.querySelectorAll('.navbar-menu a');
+      const allNavLinks = document.querySelectorAll('.navbar-menu a');
+      const navTextLinks = document.querySelectorAll('.navbar-menu a:not(.btn-book-now)');
 
       // Toggle mobile navigation menu
       navbarToggle.addEventListener('click', function() {
@@ -557,8 +558,8 @@
         icon.classList.toggle('fa-times');
       });
 
-      // Close mobile menu when a link is clicked
-      navLinks.forEach(function(link) {
+      // Close mobile menu when any link is clicked
+      allNavLinks.forEach(function(link) {
         link.addEventListener('click', function() {
           navbarMenu.classList.remove('active');
           const icon = navbarToggle.querySelector('i');
@@ -589,7 +590,7 @@
           }
         });
 
-        navLinks.forEach(function(link) {
+        navTextLinks.forEach(function(link) {
           link.classList.remove('active');
           if (link.getAttribute('href') === '#' + current) {
             link.classList.add('active');
