@@ -462,7 +462,7 @@ function Index() {
         #events { background-color: var(--primary); }
         #services { background-color: var(--white); }
         #gallery { background-color: #FFFDF7; }
-        #testimonials { background-color: var(--background); }
+        #testimonials { background-color: var(--primary); }
         #faq { background-color: var(--white); }
         #contact { background-color: var(--background); }
 
@@ -845,6 +845,122 @@ function Index() {
 
         .lightbox-close:hover { transform: scale(1.08); }
 
+        /* Testimonials Section */
+        .testimonials-wrapper { text-align: center; margin-bottom: 2.5rem; }
+
+        .testimonials-title {
+          font-family: var(--font-heading);
+          font-size: 2rem;
+          font-weight: 700;
+          color: var(--white);
+          text-align: center;
+          margin-bottom: 0.5rem;
+        }
+
+        .testimonials-subtitle {
+          font-family: var(--font-body);
+          font-size: 0.95rem;
+          font-weight: 500;
+          color: var(--accent);
+          letter-spacing: 1px;
+          text-align: center;
+        }
+
+        .testimonials-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .testimonial-card {
+          background-color: rgba(255, 255, 255, 0.08);
+          border: 1px solid rgba(201, 168, 76, 0.3);
+          border-radius: var(--radius-lg);
+          padding: 1.75rem 1.5rem;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+        }
+
+        .testimonial-card:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+          border-color: rgba(201, 168, 76, 0.5);
+        }
+
+        .testimonial-badge {
+          display: inline-block;
+          font-family: var(--font-body);
+          font-size: 0.7rem;
+          font-weight: 600;
+          color: var(--accent);
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          background-color: rgba(201, 168, 76, 0.12);
+          padding: 0.35rem 0.75rem;
+          border-radius: var(--radius-md);
+          margin-bottom: 0.75rem;
+        }
+
+        .testimonial-stars {
+          color: var(--accent);
+          font-size: 0.85rem;
+          margin-bottom: 0.75rem;
+          letter-spacing: 2px;
+        }
+
+        .testimonial-text {
+          font-family: var(--font-body);
+          font-size: 0.95rem;
+          font-weight: 400;
+          color: rgba(255, 255, 255, 0.92);
+          line-height: 1.7;
+          margin-bottom: 1.25rem;
+          flex: 1;
+        }
+
+        .testimonial-name {
+          font-family: var(--font-body);
+          font-size: 0.9rem;
+          font-weight: 600;
+          color: var(--accent);
+        }
+
+        .testimonials-note {
+          font-family: var(--font-body);
+          font-size: 0.85rem;
+          font-style: italic;
+          color: rgba(255, 255, 255, 0.7);
+          text-align: center;
+          margin-top: 2rem;
+        }
+
+        .testimonials-cta-wrap {
+          text-align: center;
+          margin-top: 1.5rem;
+        }
+
+        .testimonials-cta {
+          display: inline-block;
+          padding: 0.85rem 2rem;
+          background-color: transparent;
+          color: var(--accent);
+          font-family: var(--font-body);
+          font-size: 0.95rem;
+          font-weight: 600;
+          border: 2px solid var(--accent);
+          border-radius: var(--radius-lg);
+          transition: transform var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast), color var(--transition-fast);
+        }
+
+        .testimonials-cta:hover {
+          transform: translateY(-2px);
+          background-color: var(--accent);
+          color: var(--primary);
+          box-shadow: 0 6px 20px rgba(201, 168, 76, 0.3);
+        }
+
         @media (min-width: 768px) {
           .container { padding: 0 1.5rem; }
           .section { padding: 5rem 0; }
@@ -944,6 +1060,11 @@ function Index() {
 
           .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
           .gallery-item { font-size: 1rem; }
+
+          .testimonials-grid { grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+          .testimonials-title { font-size: 2.5rem; }
+          .testimonial-card { padding: 2rem 1.5rem; }
+          .testimonial-text { font-size: 0.95rem; }
         }
 
         @media (min-width: 1024px) {
@@ -1003,6 +1124,11 @@ function Index() {
 
           .gallery-grid { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
           .gallery-item { font-size: 1.05rem; }
+
+          .testimonials-grid { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+          .testimonials-title { font-size: 2.5rem; }
+          .testimonial-card { padding: 2rem 1.5rem; }
+          .testimonial-text { font-size: 1rem; }
         }
       `}</style>
 
@@ -1278,7 +1404,66 @@ function Index() {
       {/* Testimonials Section */}
       <section className="section" id="testimonials">
         <div className="container">
-          {/* Testimonials content will go here */}
+          <div className="testimonials-wrapper">
+            <h2 className="testimonials-title">What Our Guests Say</h2>
+            <div className="about-divider"></div>
+            <p className="testimonials-subtitle">हमारे मेहमानों के अनुभव</p>
+          </div>
+          <div className="testimonials-grid">
+            <div className="testimonial-card">
+              <span className="testimonial-badge">Google Review</span>
+              <div className="testimonial-stars">
+                <i className="fas fa-star"></i>
+                <i className="fas fa-star"></i>
+                <i className="fas fa-star"></i>
+                <i className="fas fa-star"></i>
+                <i className="fas fa-star"></i>
+              </div>
+              <p className="testimonial-text">
+                Bahut hi sundar hall hai. Hamare bête ki shaadi yahaan hui aur sab log bahut khush the. Sajaavat aur khaana dono lajawaab the. Pintu bhai ne bahut accha support kiya.
+              </p>
+              <span className="testimonial-name">Ramesh Kumar, Bihta</span>
+            </div>
+            <div className="testimonial-card">
+              <span className="testimonial-badge">Google Review</span>
+              <div className="testimonial-stars">
+                <i className="fas fa-star"></i>
+                <i className="fas fa-star"></i>
+                <i className="fas fa-star"></i>
+                <i className="fas fa-star"></i>
+                <i className="fas fa-star"></i>
+              </div>
+              <p className="testimonial-text">
+                Hall ka entrance bahut hi royal lagta hai. Generator backup aur parking ki suvidha bahut acchi hai. Hum apni beti ki reception ke liye yahan aaye the — bilkul yaadgaar raha.
+              </p>
+              <span className="testimonial-name">Sunita Devi, Bishunpura</span>
+            </div>
+            <div className="testimonial-card">
+              <span className="testimonial-badge">Google Review</span>
+              <div className="testimonial-stars">
+                <i className="fas fa-star"></i>
+                <i className="fas fa-star"></i>
+                <i className="fas fa-star"></i>
+                <i className="fas fa-star"></i>
+                <i className="fas fa-star"></i>
+              </div>
+              <p className="testimonial-text">
+                Sab kuch ek hi jagah — catering, decoration, sound — bahut aasaan ho gaya. Affordable price mein itna acha venue milna mushkil hai. Zaroor recommend karunga.
+              </p>
+              <span className="testimonial-name">Manoj Singh, Bihta</span>
+            </div>
+          </div>
+          <p className="testimonials-note">Reviews sourced from Google Maps</p>
+          <div className="testimonials-cta-wrap">
+            <a
+              href="https://maps.app.goo.gl/Hfk4fPVABqLCXofM8"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="testimonials-cta"
+            >
+              See All Reviews on Google
+            </a>
+          </div>
         </div>
       </section>
 
