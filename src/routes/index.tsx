@@ -461,7 +461,7 @@ function Index() {
         #facilities { background-color: var(--background); }
         #events { background-color: var(--primary); }
         #services { background-color: var(--white); }
-        #gallery { background-color: var(--white); }
+        #gallery { background-color: #FFFDF7; }
         #testimonials { background-color: var(--background); }
         #faq { background-color: var(--white); }
         #contact { background-color: var(--background); }
