@@ -1119,6 +1119,11 @@ function Index() {
 
           .gallery-grid { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
           .gallery-item { font-size: 1.05rem; }
+
+          .testimonials-grid { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+          .testimonials-title { font-size: 2.5rem; }
+          .testimonial-card { padding: 2rem 1.5rem; }
+          .testimonial-text { font-size: 1rem; }
         }
       `}</style>
 
