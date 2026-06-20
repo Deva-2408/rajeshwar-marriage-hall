@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -12,6 +12,20 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  const galleryItems = [
+    "Hall Interior — Main Hall",
+    "Stage Setup — Wedding",
+    "Dining Area Setup",
+    "Entrance Gate",
+    "Decorative Lighting",
+    "Bridal Room",
+    "Outdoor Lawn",
+    "Reception Setup",
+    "Hall Exterior / Building",
+  ];
+
   useEffect(() => {
     // Mobile menu toggle
     const navbarToggle = document.getElementById("navbarToggle");
