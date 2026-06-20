@@ -1060,6 +1060,11 @@ function Index() {
 
           .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
           .gallery-item { font-size: 1rem; }
+
+          .testimonials-grid { grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+          .testimonials-title { font-size: 2.5rem; }
+          .testimonial-card { padding: 2rem 1.5rem; }
+          .testimonial-text { font-size: 0.95rem; }
         }
 
         @media (min-width: 1024px) {
