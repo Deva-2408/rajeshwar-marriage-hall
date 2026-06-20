@@ -1404,7 +1404,66 @@ function Index() {
       {/* Testimonials Section */}
       <section className="section" id="testimonials">
         <div className="container">
-          {/* Testimonials content will go here */}
+          <div className="testimonials-wrapper">
+            <h2 className="testimonials-title">What Our Guests Say</h2>
+            <div className="about-divider"></div>
+            <p className="testimonials-subtitle">हमारे मेहमानों के अनुभव</p>
+          </div>
+          <div className="testimonials-grid">
+            <div className="testimonial-card">
+              <span className="testimonial-badge">Google Review</span>
+              <div className="testimonial-stars">
+                <i className="fas fa-star"></i>
+                <i className="fas fa-star"></i>
+                <i className="fas fa-star"></i>
+                <i className="fas fa-star"></i>
+                <i className="fas fa-star"></i>
+              </div>
+              <p className="testimonial-text">
+                Bahut hi sundar hall hai. Hamare bête ki shaadi yahaan hui aur sab log bahut khush the. Sajaavat aur khaana dono lajawaab the. Pintu bhai ne bahut accha support kiya.
+              </p>
+              <span className="testimonial-name">Ramesh Kumar, Bihta</span>
+            </div>
+            <div className="testimonial-card">
+              <span className="testimonial-badge">Google Review</span>
+              <div className="testimonial-stars">
+                <i className="fas fa-star"></i>
+                <i className="fas fa-star"></i>
+                <i className="fas fa-star"></i>
+                <i className="fas fa-star"></i>
+                <i className="fas fa-star"></i>
+              </div>
+              <p className="testimonial-text">
+                Hall ka entrance bahut hi royal lagta hai. Generator backup aur parking ki suvidha bahut acchi hai. Hum apni beti ki reception ke liye yahan aaye the — bilkul yaadgaar raha.
+              </p>
+              <span className="testimonial-name">Sunita Devi, Bishunpura</span>
+            </div>
+            <div className="testimonial-card">
+              <span className="testimonial-badge">Google Review</span>
+              <div className="testimonial-stars">
+                <i className="fas fa-star"></i>
+                <i className="fas fa-star"></i>
+                <i className="fas fa-star"></i>
+                <i className="fas fa-star"></i>
+                <i className="fas fa-star"></i>
+              </div>
+              <p className="testimonial-text">
+                Sab kuch ek hi jagah — catering, decoration, sound — bahut aasaan ho gaya. Affordable price mein itna acha venue milna mushkil hai. Zaroor recommend karunga.
+              </p>
+              <span className="testimonial-name">Manoj Singh, Bihta</span>
+            </div>
+          </div>
+          <p className="testimonials-note">Reviews sourced from Google Maps</p>
+          <div className="testimonials-cta-wrap">
+            <a
+              href="https://maps.app.goo.gl/Hfk4fPVABqLCXofM8"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="testimonials-cta"
+            >
+              See All Reviews on Google
+            </a>
+          </div>
         </div>
       </section>
 
