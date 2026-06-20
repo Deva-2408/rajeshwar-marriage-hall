@@ -729,6 +729,122 @@ function Index() {
           line-height: 1.6;
         }
 
+        /* Gallery Section */
+        .gallery-wrapper { text-align: center; margin-bottom: 2.5rem; }
+
+        .gallery-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+
+        .gallery-item {
+          width: 100%;
+          aspect-ratio: 4 / 3;
+          background-color: #F5E6C0;
+          border: 2px solid var(--accent);
+          border-radius: var(--radius-lg);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          padding: 1rem;
+          cursor: pointer;
+          font-family: var(--font-body);
+          font-size: 0.9rem;
+          font-weight: 600;
+          color: var(--primary);
+          transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+          overflow: hidden;
+        }
+
+        .gallery-item:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 8px 24px rgba(139, 0, 0, 0.15);
+        }
+
+        .gallery-note {
+          font-family: var(--font-body);
+          font-size: 0.9rem;
+          font-style: italic;
+          color: var(--accent);
+          text-align: center;
+          margin-top: 2rem;
+        }
+
+        .gallery-cta-wrap { text-align: center; margin-top: 1.5rem; }
+
+        .gallery-cta {
+          display: inline-block;
+          padding: 0.85rem 2rem;
+          background-color: var(--accent);
+          color: var(--primary);
+          font-family: var(--font-body);
+          font-size: 0.95rem;
+          font-weight: 600;
+          border-radius: var(--radius-lg);
+          transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+        }
+
+        .gallery-cta:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(201, 168, 76, 0.4);
+        }
+
+        .lightbox-overlay {
+          position: fixed;
+          inset: 0;
+          background-color: rgba(0, 0, 0, 0.92);
+          z-index: 2000;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 2rem;
+          animation: fadeIn 0.2s ease;
+        }
+
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+
+        .lightbox-content {
+          width: 100%;
+          max-width: 900px;
+          aspect-ratio: 4 / 3;
+          background-color: #F5E6C0;
+          border: 2px solid var(--accent);
+          border-radius: var(--radius-lg);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          padding: 2rem;
+          font-family: var(--font-heading);
+          font-size: 1.5rem;
+          font-weight: 700;
+          color: var(--primary);
+        }
+
+        .lightbox-close {
+          position: absolute;
+          top: 1.25rem;
+          right: 1.5rem;
+          width: 44px;
+          height: 44px;
+          border-radius: 50%;
+          background-color: var(--accent);
+          color: var(--primary);
+          font-size: 1.25rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: transform var(--transition-fast);
+        }
+
+        .lightbox-close:hover { transform: scale(1.08); }
+
         @media (min-width: 768px) {
           .container { padding: 0 1.5rem; }
           .section { padding: 5rem 0; }
@@ -825,6 +941,9 @@ function Index() {
           .service-icon { font-size: 2rem; }
           .service-title { font-size: 1.05rem; }
           .service-desc { font-size: 0.9rem; }
+
+          .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+          .gallery-item { font-size: 1rem; }
         }
 
         @media (min-width: 1024px) {
@@ -881,6 +1000,9 @@ function Index() {
           .service-icon { font-size: 2.25rem; }
           .service-title { font-size: 1.1rem; }
           .service-desc { font-size: 0.95rem; }
+
+          .gallery-grid { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+          .gallery-item { font-size: 1.05rem; }
         }
       `}</style>
 
