@@ -1230,7 +1230,48 @@ function Index() {
       {/* Gallery Section */}
       <section className="section" id="gallery">
         <div className="container">
-          {/* Gallery content will go here */}
+          <div className="gallery-wrapper">
+            <h2 className="section-title">Gallery</h2>
+            <div className="about-divider"></div>
+            <p className="about-hindi">हमारी झलकियाँ</p>
+          </div>
+          <div className="gallery-grid">
+            {galleryItems.map((label, i) => (
+              <button
+                type="button"
+                key={label}
+                className="gallery-item"
+                onClick={() => setLightboxIndex(i)}
+                aria-label={`Open photo: ${label}`}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+          <p className="gallery-note">More photos coming soon. Visit the venue for a personal tour.</p>
+          <div className="gallery-cta-wrap">
+            <a href="#contact" className="gallery-cta">Book a Venue Visit</a>
+          </div>
+          {lightboxIndex !== null && (
+            <div
+              className="lightbox-overlay"
+              onClick={() => setLightboxIndex(null)}
+              role="dialog"
+              aria-modal="true"
+            >
+              <button
+                type="button"
+                className="lightbox-close"
+                onClick={(e) => { e.stopPropagation(); setLightboxIndex(null); }}
+                aria-label="Close"
+              >
+                <i className="fas fa-times"></i>
+              </button>
+              <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
+                {galleryItems[lightboxIndex]}
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
