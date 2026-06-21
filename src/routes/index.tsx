@@ -1606,7 +1606,45 @@ function Index() {
       {/* FAQ Section */}
       <section className="section" id="faq">
         <div className="container">
-          {/* FAQ content will go here */}
+          <div className="faq-wrapper">
+            <h2 className="section-title">Frequently Asked Questions</h2>
+            <div className="about-divider"></div>
+            <p className="about-hindi">अक्सर पूछे जाने वाले सवाल</p>
+          </div>
+          <div className="faq-list" role="region" aria-label="Frequently asked questions">
+            {faqs.map((faq, index) => {
+              const isOpen = openFaq === index;
+              return (
+                <div
+                  key={index}
+                  className={isOpen ? "faq-item open" : "faq-item"}
+                >
+                  <button
+                    type="button"
+                    className="faq-question"
+                    onClick={() => setOpenFaq(isOpen ? null : index)}
+                    aria-expanded={isOpen}
+                    aria-controls={`faq-answer-${index}`}
+                  >
+                    <span className="faq-question-text">
+                      {faq.q}
+                      <span>{faq.qEn}</span>
+                    </span>
+                    <i className="fas fa-chevron-down faq-arrow" aria-hidden="true"></i>
+                  </button>
+                  <div
+                    id={`faq-answer-${index}`}
+                    className="faq-answer"
+                    aria-hidden={!isOpen}
+                  >
+                    <div className="faq-answer-inner">
+                      <p className="faq-answer-text">{faq.a}</p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
 
