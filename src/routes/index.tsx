@@ -1284,6 +1284,7 @@ function Index() {
               <li><a href="#facilities">Facilities</a></li>
               <li><a href="#events">Events</a></li>
               <li><a href="#gallery">Gallery</a></li>
+              <li><a href="#faq">FAQ</a></li>
               <li><a href="#contact">Contact</a></li>
               <li><a href="#contact" className="btn-book-now">Book Now</a></li>
             </ul>
