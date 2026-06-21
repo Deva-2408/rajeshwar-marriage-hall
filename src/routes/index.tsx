@@ -13,6 +13,7 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const galleryItems = [
     "Hall Interior — Main Hall",
@@ -24,6 +25,59 @@ function Index() {
     "Outdoor Lawn",
     "Reception Setup",
     "Hall Exterior / Building",
+  ];
+
+  const faqs = [
+    {
+      q: "Hall ki capacity kitni hai?",
+      qEn: "What is the hall capacity?",
+      a: "Hamare main hall mein wedding setup ke liye lagbhag 100 mehmaan baith sakte hain. Dining area mein lagbhag 200 mehmaan ke liye vyavastha hai. Lawn mein 20 se 50 log aaram se baith sakte hain. Adhik jaankari ke liye venue visit karein. | Our main hall seats approximately 100 guests in wedding setup and around 200 in dining arrangement. The lawn accommodates 20-50 guests.",
+    },
+    {
+      q: "Kya parking available hai?",
+      qEn: "Is parking available?",
+      a: "Haan, hamare paas free on-site parking ki suvidha hai. | Yes, we offer free on-site parking for all guests.",
+    },
+    {
+      q: "Kya catering ki suvidha hai?",
+      qEn: "Is catering available?",
+      a: "Haan, hum in-house catering provide karte hain. Aap apna caterer bhi la sakte hain. | Yes, we provide in-house catering. Outside caterers are also welcome.",
+    },
+    {
+      q: "Kya decoration hum log khud kara sakte hain?",
+      qEn: "Can we arrange our own decoration?",
+      a: "Bilkul. Hum in-house decoration dete hain aur aap apna decorator bhi la sakte hain. | Absolutely. We offer in-house decoration and also allow outside decorators.",
+    },
+    {
+      q: "Booking advance kitna dena hoga?",
+      qEn: "How much advance is required to book?",
+      a: "Advance booking amount event ke prakar par nirbhar karta hai. Adhik jaankari ke liye Pintu Kumar Singh se directly call ya WhatsApp karein. | The advance booking amount depends on the type of event. Please call or WhatsApp Pintu Kumar Singh for details.",
+    },
+    {
+      q: "Cancellation policy kya hai?",
+      qEn: "What is the cancellation policy?",
+      a: "Agar booking cancel hoti hai to advance amount refund nahi hoga, lekin use nayi date par adjust kiya ja sakta hai. | If a booking is cancelled, the advance is not refunded but can be adjusted to a new date.",
+    },
+    {
+      q: "Kya hum venue visit kar sakte hain?",
+      qEn: "Can we visit the venue before booking?",
+      a: "Haan bilkul. Aap kisi bhi din, kisi bhi samay venue dekhne aa sakte hain. Koi appointment ki zaroorat nahi. | Yes, you are welcome to visit the venue any day, any time. No appointment needed.",
+    },
+    {
+      q: "Kya generator backup hai?",
+      qEn: "Is there power backup?",
+      a: "Haan, hamare paas 24 ghante ka generator backup hai. | Yes, we have 24/7 generator backup to ensure uninterrupted power during your event.",
+    },
+    {
+      q: "Hall mein AC hai?",
+      qEn: "Is the hall air conditioned?",
+      a: "Haan, main hall mein AC ki suvidha hai. | Yes, the main hall is air conditioned.",
+    },
+    {
+      q: "Kon kon se events ke liye hall book ho sakta hai?",
+      qEn: "What events can be hosted here?",
+      a: "Shaadi, Reception, Sagai, Birthday party aur anya samaajik ayojan. | Weddings, receptions, engagements, birthday parties and other social events.",
+    },
   ];
 
   useEffect(() => {
@@ -1130,6 +1184,87 @@ function Index() {
           .testimonial-card { padding: 2rem 1.5rem; }
           .testimonial-text { font-size: 1rem; }
         }
+
+        /* FAQ Section */
+        .faq-wrapper { text-align: center; margin-bottom: 2.5rem; }
+
+        .faq-list {
+          max-width: 800px;
+          margin: 0 auto;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .faq-item {
+          border-bottom: 1px solid rgba(201, 168, 76, 0.35);
+          overflow: hidden;
+        }
+
+        .faq-question {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 1rem;
+          padding: 1.25rem 0;
+          text-align: left;
+          background: transparent;
+          border: none;
+          cursor: pointer;
+        }
+
+        .faq-question-text {
+          font-family: var(--font-body);
+          font-size: 0.95rem;
+          font-weight: 700;
+          color: var(--primary);
+          line-height: 1.45;
+        }
+
+        .faq-question-text span {
+          display: block;
+          font-size: 0.85rem;
+          font-weight: 600;
+          color: var(--text);
+          margin-top: 0.15rem;
+          opacity: 0.85;
+        }
+
+        .faq-arrow {
+          flex-shrink: 0;
+          font-size: 0.9rem;
+          color: var(--accent);
+          transition: transform var(--transition-normal);
+        }
+
+        .faq-item.open .faq-arrow { transform: rotate(180deg); }
+
+        .faq-answer {
+          display: grid;
+          grid-template-rows: 0fr;
+          transition: grid-template-rows var(--transition-normal);
+        }
+
+        .faq-item.open .faq-answer { grid-template-rows: 1fr; }
+
+        .faq-answer-inner {
+          overflow: hidden;
+        }
+
+        .faq-answer-text {
+          font-family: var(--font-body);
+          font-size: 0.9rem;
+          font-weight: 400;
+          color: var(--text);
+          line-height: 1.7;
+          padding-bottom: 1.25rem;
+        }
+
+        @media (min-width: 768px) {
+          .faq-question-text { font-size: 1.05rem; }
+          .faq-question-text span { font-size: 0.95rem; }
+          .faq-answer-text { font-size: 0.95rem; }
+        }
       `}</style>
 
       {/* Navigation */}
@@ -1149,6 +1284,7 @@ function Index() {
               <li><a href="#facilities">Facilities</a></li>
               <li><a href="#events">Events</a></li>
               <li><a href="#gallery">Gallery</a></li>
+              <li><a href="#faq">FAQ</a></li>
               <li><a href="#contact">Contact</a></li>
               <li><a href="#contact" className="btn-book-now">Book Now</a></li>
             </ul>
@@ -1470,7 +1606,45 @@ function Index() {
       {/* FAQ Section */}
       <section className="section" id="faq">
         <div className="container">
-          {/* FAQ content will go here */}
+          <div className="faq-wrapper">
+            <h2 className="section-title">Frequently Asked Questions</h2>
+            <div className="about-divider"></div>
+            <p className="about-hindi">अक्सर पूछे जाने वाले सवाल</p>
+          </div>
+          <div className="faq-list" role="region" aria-label="Frequently asked questions">
+            {faqs.map((faq, index) => {
+              const isOpen = openFaq === index;
+              return (
+                <div
+                  key={index}
+                  className={isOpen ? "faq-item open" : "faq-item"}
+                >
+                  <button
+                    type="button"
+                    className="faq-question"
+                    onClick={() => setOpenFaq(isOpen ? null : index)}
+                    aria-expanded={isOpen}
+                    aria-controls={`faq-answer-${index}`}
+                  >
+                    <span className="faq-question-text">
+                      {faq.q}
+                      <span>{faq.qEn}</span>
+                    </span>
+                    <i className="fas fa-chevron-down faq-arrow" aria-hidden="true"></i>
+                  </button>
+                  <div
+                    id={`faq-answer-${index}`}
+                    className="faq-answer"
+                    aria-hidden={!isOpen}
+                  >
+                    <div className="faq-answer-inner">
+                      <p className="faq-answer-text">{faq.a}</p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
 
