@@ -1902,14 +1902,115 @@ function Index() {
       {/* Contact Section */}
       <section className="section" id="contact">
         <div className="container">
-          {/* Contact content will go here */}
+          <div className="about-wrapper">
+            <h2 className="section-title">Contact Us</h2>
+            <div className="about-divider"></div>
+            <p className="about-hindi">हमसे संपर्क करें</p>
+          </div>
+          <div className="contact-grid">
+            <div className="contact-info">
+              <h3 className="contact-info-title">Get in Touch <span>/ संपर्क करें</span></h3>
+              <div className="contact-item">
+                <div className="contact-icon"><i className="fas fa-map-marker-alt"></i></div>
+                <div>
+                  <div className="contact-label">Address</div>
+                  <div className="contact-value">Bishunpura South Side, Near Bajrangbali Mandir, Bihta, Bihar</div>
+                </div>
+              </div>
+              <div className="contact-item">
+                <div className="contact-icon"><i className="fas fa-phone"></i></div>
+                <div>
+                  <div className="contact-label">Phone</div>
+                  <a href="tel:+916207928461" className="contact-value">+91 62079 28461</a>
+                </div>
+              </div>
+              <div className="contact-item">
+                <div className="contact-icon"><i className="fab fa-whatsapp"></i></div>
+                <div>
+                  <div className="contact-label">WhatsApp</div>
+                  <a href="https://wa.me/916207928461" target="_blank" rel="noopener noreferrer" className="contact-value">+91 62079 28461</a>
+                </div>
+              </div>
+              <div className="contact-item">
+                <div className="contact-icon"><i className="fas fa-clock"></i></div>
+                <div>
+                  <div className="contact-label">Hours</div>
+                  <div className="contact-value">24 Hours Available / 24 घंटे उपलब्ध</div>
+                </div>
+              </div>
+              <div className="contact-item">
+                <div className="contact-icon"><i className="fas fa-user-tie"></i></div>
+                <div>
+                  <div className="contact-label">Owner</div>
+                  <div className="contact-value">Pintu Kumar Singh (Proprietor)</div>
+                </div>
+              </div>
+              <div className="contact-buttons">
+                <a href="tel:+916207928461" className="contact-btn-call">
+                  <i className="fas fa-phone"></i> Call Now
+                </a>
+                <a href="https://wa.me/916207928461" target="_blank" rel="noopener noreferrer" className="contact-btn-whatsapp">
+                  <i className="fab fa-whatsapp"></i> WhatsApp Now
+                </a>
+              </div>
+            </div>
+            <div className="contact-map">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1!2d0!3d0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m1!1s0x398d55002b4bb1e7:0xbf8a2b3d0c1ca0af!5e0!3m2!1sen!2sin!4v1"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Rajeshwar Marriage Hall Location"
+              ></iframe>
+            </div>
+          </div>
+          <p className="contact-note">
+            Venue visit ke liye kisi appointment ki zaroorat nahi. Aap seedha aa sakte hain. | No appointment needed for a venue visit. Walk in anytime.
+          </p>
         </div>
       </section>
 
       {/* Footer */}
       <footer className="footer">
         <div className="container">
-          {/* Footer content will go here */}
+          <div className="footer-grid">
+            <div className="footer-brand">
+              <h3 className="footer-logo">Rajeshwar Marriage Hall</h3>
+              <p className="footer-tagline">Where Every Celebration Becomes a Memory</p>
+              <p className="footer-hindi">जहाँ हर जश्न एक याद बन जाता है</p>
+            </div>
+            <div className="footer-links-col">
+              <h4 className="footer-col-title">Quick Links</h4>
+              <ul className="footer-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#facilities">Facilities</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+            </div>
+            <div className="footer-contact-col">
+              <h4 className="footer-col-title">Contact</h4>
+              <div className="footer-contact-item">
+                <i className="fas fa-map-marker-alt"></i>
+                <span>Bishunpura South Side, Near Bajrangbali Mandir, Bihta, Bihar</span>
+              </div>
+              <div className="footer-contact-item">
+                <i className="fas fa-phone"></i>
+                <a href="tel:+916207928461">+91 62079 28461</a>
+              </div>
+              <div className="footer-contact-item">
+                <i className="fab fa-whatsapp"></i>
+                <a href="https://wa.me/916207928461" target="_blank" rel="noopener noreferrer">+91 62079 28461</a>
+              </div>
+            </div>
+          </div>
+          <div className="footer-divider"></div>
+          <p className="footer-bottom">© 2024 Rajeshwar Marriage Hall, Bihta, Bihar. All Rights Reserved.</p>
         </div>
       </footer>
     </>
