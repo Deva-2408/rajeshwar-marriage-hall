@@ -1265,6 +1265,257 @@ function Index() {
           .faq-question-text span { font-size: 0.95rem; }
           .faq-answer-text { font-size: 0.95rem; }
         }
+
+        /* Contact Section */
+        .contact-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 2.5rem;
+          align-items: stretch;
+        }
+
+        .contact-info {
+          background-color: var(--white);
+          border: 1px solid rgba(201, 168, 76, 0.3);
+          border-radius: var(--radius-lg);
+          padding: 2rem 1.5rem;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-info-title {
+          font-family: var(--font-heading);
+          font-size: 1.5rem;
+          font-weight: 700;
+          color: var(--primary);
+          margin-bottom: 1.5rem;
+        }
+
+        .contact-info-title span {
+          font-family: var(--font-body);
+          font-size: 1rem;
+          font-weight: 500;
+          color: var(--accent);
+        }
+
+        .contact-item {
+          display: flex;
+          align-items: flex-start;
+          gap: 1rem;
+          margin-bottom: 1.25rem;
+        }
+
+        .contact-icon {
+          flex-shrink: 0;
+          width: 44px;
+          height: 44px;
+          border-radius: 50%;
+          background-color: rgba(201, 168, 76, 0.12);
+          color: var(--accent);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.1rem;
+        }
+
+        .contact-label {
+          font-family: var(--font-body);
+          font-size: 0.8rem;
+          font-weight: 600;
+          color: var(--accent);
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          margin-bottom: 0.15rem;
+        }
+
+        .contact-value {
+          font-family: var(--font-body);
+          font-size: 0.95rem;
+          font-weight: 500;
+          color: var(--text);
+          line-height: 1.5;
+        }
+
+        .contact-value:hover { color: var(--primary); }
+
+        .contact-buttons {
+          display: flex;
+          flex-direction: column;
+          gap: 0.75rem;
+          margin-top: 1.75rem;
+        }
+
+        .contact-btn-call,
+        .contact-btn-whatsapp {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.5rem;
+          width: 100%;
+          padding: 0.95rem 1.5rem;
+          font-family: var(--font-body);
+          font-size: 1rem;
+          font-weight: 600;
+          border-radius: var(--radius-lg);
+          transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+        }
+
+        .contact-btn-call {
+          background-color: var(--accent);
+          color: var(--primary);
+        }
+
+        .contact-btn-call:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(201, 168, 76, 0.4);
+        }
+
+        .contact-btn-whatsapp {
+          background-color: #25D366;
+          color: var(--white);
+        }
+
+        .contact-btn-whatsapp:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+        }
+
+        .contact-map {
+          width: 100%;
+          min-height: 320px;
+          border: 2px solid var(--accent);
+          border-radius: var(--radius-lg);
+          overflow: hidden;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-map iframe {
+          width: 100%;
+          height: 100%;
+          min-height: 320px;
+          display: block;
+        }
+
+        .contact-note {
+          font-family: var(--font-body);
+          font-size: 0.95rem;
+          font-style: italic;
+          color: var(--accent);
+          text-align: center;
+          margin-top: 2.5rem;
+          line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 2.5rem;
+          margin-bottom: 2.5rem;
+        }
+
+        .footer-logo {
+          font-family: var(--font-heading);
+          font-size: 1.5rem;
+          font-weight: 700;
+          color: var(--accent);
+          margin-bottom: 0.75rem;
+        }
+
+        .footer-tagline {
+          font-family: var(--font-heading);
+          font-size: 1rem;
+          font-style: italic;
+          color: var(--white);
+          margin-bottom: 0.35rem;
+        }
+
+        .footer-hindi {
+          font-family: var(--font-body);
+          font-size: 0.85rem;
+          color: var(--accent);
+        }
+
+        .footer-col-title {
+          font-family: var(--font-body);
+          font-size: 1rem;
+          font-weight: 600;
+          color: var(--accent);
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          margin-bottom: 1rem;
+        }
+
+        .footer-links {
+          display: flex;
+          flex-direction: column;
+          gap: 0.6rem;
+        }
+
+        .footer-links a {
+          font-family: var(--font-body);
+          font-size: 0.95rem;
+          color: rgba(255, 255, 255, 0.85);
+          transition: color var(--transition-fast), transform var(--transition-fast);
+        }
+
+        .footer-links a:hover {
+          color: var(--accent);
+          transform: translateX(3px);
+        }
+
+        .footer-contact-item {
+          display: flex;
+          align-items: flex-start;
+          gap: 0.75rem;
+          font-family: var(--font-body);
+          font-size: 0.9rem;
+          color: rgba(255, 255, 255, 0.85);
+          margin-bottom: 0.75rem;
+        }
+
+        .footer-contact-item i {
+          color: var(--accent);
+          margin-top: 0.25rem;
+        }
+
+        .footer-contact-item a:hover { color: var(--accent); }
+
+        .footer-divider {
+          width: 100%;
+          height: 1px;
+          background-color: var(--accent);
+          margin-bottom: 1.5rem;
+          opacity: 0.4;
+        }
+
+        .footer-bottom {
+          font-family: var(--font-body);
+          font-size: 0.85rem;
+          color: rgba(255, 255, 255, 0.7);
+          text-align: center;
+        }
+
+        @media (min-width: 768px) {
+          .contact-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
+          .contact-info { padding: 2.5rem; }
+          .contact-info-title { font-size: 1.75rem; }
+          .contact-map { min-height: 100%; }
+          .contact-map iframe { min-height: 100%; }
+          .contact-note { font-size: 1rem; margin-top: 3rem; }
+          .footer-grid { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+          .footer-logo { font-size: 1.75rem; }
+          .footer-tagline { font-size: 1.05rem; }
+          .footer-links a { font-size: 1rem; }
+          .footer-contact-item { font-size: 0.95rem; }
+        }
+
+        @media (min-width: 1024px) {
+          .contact-grid { gap: 4rem; }
+          .contact-info { padding: 3rem; }
+          .contact-info-title { font-size: 2rem; }
+          .footer-grid { gap: 3rem; }
+          .footer-logo { font-size: 2rem; }
+        }
       `}</style>
 
       {/* Navigation */}
@@ -1651,14 +1902,115 @@ function Index() {
       {/* Contact Section */}
       <section className="section" id="contact">
         <div className="container">
-          {/* Contact content will go here */}
+          <div className="about-wrapper">
+            <h2 className="section-title">Contact Us</h2>
+            <div className="about-divider"></div>
+            <p className="about-hindi">हमसे संपर्क करें</p>
+          </div>
+          <div className="contact-grid">
+            <div className="contact-info">
+              <h3 className="contact-info-title">Get in Touch <span>/ संपर्क करें</span></h3>
+              <div className="contact-item">
+                <div className="contact-icon"><i className="fas fa-map-marker-alt"></i></div>
+                <div>
+                  <div className="contact-label">Address</div>
+                  <div className="contact-value">Bishunpura South Side, Near Bajrangbali Mandir, Bihta, Bihar</div>
+                </div>
+              </div>
+              <div className="contact-item">
+                <div className="contact-icon"><i className="fas fa-phone"></i></div>
+                <div>
+                  <div className="contact-label">Phone</div>
+                  <a href="tel:+916207928461" className="contact-value">+91 62079 28461</a>
+                </div>
+              </div>
+              <div className="contact-item">
+                <div className="contact-icon"><i className="fab fa-whatsapp"></i></div>
+                <div>
+                  <div className="contact-label">WhatsApp</div>
+                  <a href="https://wa.me/916207928461" target="_blank" rel="noopener noreferrer" className="contact-value">+91 62079 28461</a>
+                </div>
+              </div>
+              <div className="contact-item">
+                <div className="contact-icon"><i className="fas fa-clock"></i></div>
+                <div>
+                  <div className="contact-label">Hours</div>
+                  <div className="contact-value">24 Hours Available / 24 घंटे उपलब्ध</div>
+                </div>
+              </div>
+              <div className="contact-item">
+                <div className="contact-icon"><i className="fas fa-user-tie"></i></div>
+                <div>
+                  <div className="contact-label">Owner</div>
+                  <div className="contact-value">Pintu Kumar Singh (Proprietor)</div>
+                </div>
+              </div>
+              <div className="contact-buttons">
+                <a href="tel:+916207928461" className="contact-btn-call">
+                  <i className="fas fa-phone"></i> Call Now
+                </a>
+                <a href="https://wa.me/916207928461" target="_blank" rel="noopener noreferrer" className="contact-btn-whatsapp">
+                  <i className="fab fa-whatsapp"></i> WhatsApp Now
+                </a>
+              </div>
+            </div>
+            <div className="contact-map">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1!2d0!3d0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m1!1s0x398d55002b4bb1e7:0xbf8a2b3d0c1ca0af!5e0!3m2!1sen!2sin!4v1"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Rajeshwar Marriage Hall Location"
+              ></iframe>
+            </div>
+          </div>
+          <p className="contact-note">
+            Venue visit ke liye kisi appointment ki zaroorat nahi. Aap seedha aa sakte hain. | No appointment needed for a venue visit. Walk in anytime.
+          </p>
         </div>
       </section>
 
       {/* Footer */}
       <footer className="footer">
         <div className="container">
-          {/* Footer content will go here */}
+          <div className="footer-grid">
+            <div className="footer-brand">
+              <h3 className="footer-logo">Rajeshwar Marriage Hall</h3>
+              <p className="footer-tagline">Where Every Celebration Becomes a Memory</p>
+              <p className="footer-hindi">जहाँ हर जश्न एक याद बन जाता है</p>
+            </div>
+            <div className="footer-links-col">
+              <h4 className="footer-col-title">Quick Links</h4>
+              <ul className="footer-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#facilities">Facilities</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+            </div>
+            <div className="footer-contact-col">
+              <h4 className="footer-col-title">Contact</h4>
+              <div className="footer-contact-item">
+                <i className="fas fa-map-marker-alt"></i>
+                <span>Bishunpura South Side, Near Bajrangbali Mandir, Bihta, Bihar</span>
+              </div>
+              <div className="footer-contact-item">
+                <i className="fas fa-phone"></i>
+                <a href="tel:+916207928461">+91 62079 28461</a>
+              </div>
+              <div className="footer-contact-item">
+                <i className="fab fa-whatsapp"></i>
+                <a href="https://wa.me/916207928461" target="_blank" rel="noopener noreferrer">+91 62079 28461</a>
+              </div>
+            </div>
+          </div>
+          <div className="footer-divider"></div>
+          <p className="footer-bottom">© 2024 Rajeshwar Marriage Hall, Bihta, Bihar. All Rights Reserved.</p>
         </div>
       </footer>
     </>
