@@ -2039,6 +2039,25 @@ function Index() {
           <p className="footer-bottom">© 2024 Rajeshwar Marriage Hall, Bihta, Bihar. All Rights Reserved.</p>
         </div>
       </footer>
+
+      <a
+        href="tel:+916207928461"
+        className="floating-action floating-call"
+        aria-label="Call Now"
+        data-tooltip="Call Now"
+      >
+        <i className="fas fa-phone"></i>
+      </a>
+      <a
+        href="https://wa.me/916207928461"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="floating-action floating-whatsapp"
+        aria-label="Chat on WhatsApp"
+        data-tooltip="Chat on WhatsApp"
+      >
+        <i className="fa-brands fa-whatsapp"></i>
+      </a>
     </>
   );
 }
