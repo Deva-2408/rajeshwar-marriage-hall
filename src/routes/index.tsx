@@ -4,9 +4,35 @@ import { useEffect, useState } from "react";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Rajeshwar Marriage Hall - Bihta, Bihar" },
-      { name: "description", content: "Rajeshwar Marriage Hall - Premier wedding venue in Bihta, Bihar, India" },
+      { title: "Rajeshwar Marriage Hall — Wedding Venue in Bihta, Bihar | Shaadi Hall Bihta" },
+      {
+        name: "description",
+        content:
+          "Rajeshwar Marriage Hall — Bihta ka sabse sundar aur affordable vivah sthal. Shaadi, reception, sagai aur birthday ke liye book karein. Call: +91 62079 28461",
+      },
+      {
+        name: "keywords",
+        content:
+          "marriage hall bihta, shaadi hall bihta bihar, wedding venue bihta, banquet hall near patna, vivah bhawan bihta, rajeshwar marriage hall",
+      },
+      { property: "og:title", content: "Rajeshwar Marriage Hall — Wedding Venue in Bihta, Bihar" },
+      {
+        property: "og:description",
+        content:
+          "Bihta ka sabse sundar aur affordable vivah sthal. Shaadi, reception, sagai aur birthday ke liye book karein. Call: +91 62079 28461",
+      },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://rajeshwar-marriage-hall.lovable.app/" },
+      { property: "og:site_name", content: "Rajeshwar Marriage Hall" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Rajeshwar Marriage Hall — Wedding Venue in Bihta, Bihar" },
+      {
+        name: "twitter:description",
+        content:
+          "Bihta ka sabse sundar aur affordable vivah sthal. Shaadi, reception, sagai aur birthday ke liye book karein.",
+      },
     ],
+    links: [{ rel: "canonical", href: "https://rajeshwar-marriage-hall.lovable.app/" }],
   }),
   component: Index,
 });
