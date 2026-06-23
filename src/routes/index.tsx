@@ -269,6 +269,62 @@ function Index() {
 
         .gold-accent { color: var(--accent); }
 
+        .floating-action {
+          position: fixed;
+          right: 20px;
+          width: 56px;
+          height: 56px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.6rem;
+          z-index: 9999;
+          box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+          transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+        }
+
+        .floating-action:hover { transform: scale(1.08); }
+
+        .floating-whatsapp {
+          bottom: 20px;
+          background-color: #25D366;
+          color: #FFFFFF;
+          animation: whatsappPulse 2s ease-out infinite;
+        }
+
+        .floating-call {
+          bottom: 90px;
+          background-color: var(--accent);
+          color: var(--primary);
+        }
+
+        .floating-action::after {
+          content: attr(data-tooltip);
+          position: absolute;
+          right: 70px;
+          top: 50%;
+          transform: translateY(-50%);
+          background: rgba(0, 0, 0, 0.85);
+          color: #fff;
+          font-family: var(--font-body);
+          font-size: 0.8rem;
+          padding: 0.4rem 0.7rem;
+          border-radius: var(--radius-sm);
+          white-space: nowrap;
+          opacity: 0;
+          pointer-events: none;
+          transition: opacity var(--transition-fast);
+        }
+
+        .floating-action:hover::after { opacity: 1; }
+
+        @keyframes whatsappPulse {
+          0% { box-shadow: 0 6px 16px rgba(0,0,0,0.25), 0 0 0 0 rgba(37, 211, 102, 0.55); }
+          70% { box-shadow: 0 6px 16px rgba(0,0,0,0.25), 0 0 0 18px rgba(37, 211, 102, 0); }
+          100% { box-shadow: 0 6px 16px rgba(0,0,0,0.25), 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
         .navbar {
           position: fixed;
           top: 0;
