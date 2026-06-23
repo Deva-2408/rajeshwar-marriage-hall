@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rajeshwar-marriage-hall.lovable.app/sitemap.xml

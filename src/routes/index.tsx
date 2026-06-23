@@ -4,11 +4,11 @@ import { useEffect, useState } from "react";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Rajeshwar Marriage Hall — Wedding Venue in Bihta, Bihar | Shaadi Hall Bihta" },
+      { title: "Rajeshwar Marriage Hall — Wedding Venue in Bihta, Bihar" },
       {
         name: "description",
         content:
-          "Rajeshwar Marriage Hall — Bihta ka sabse sundar aur affordable vivah sthal. Shaadi, reception, sagai aur birthday ke liye book karein. Call: +91 62079 28461",
+          "Affordable wedding venue in Bihta, Bihar for shaadi, reception, sagai & birthdays. AC hall, parking, catering. Call +91 62079 28461.",
       },
       {
         name: "keywords",
@@ -33,6 +33,49 @@ export const Route = createFileRoute("/")({
       },
     ],
     links: [{ rel: "canonical", href: "https://rajeshwar-marriage-hall.lovable.app/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WeddingVenue",
+          name: "Rajeshwar Marriage Hall",
+          telephone: "+91 62079 28461",
+          url: "https://rajeshwar-marriage-hall.lovable.app/",
+          image: "https://rajeshwar-marriage-hall.lovable.app/og-image.jpg",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Bishunpura South Side, Near Bajrangbali Mandir",
+            addressLocality: "Bihta",
+            addressRegion: "Bihar",
+            addressCountry: "IN",
+          },
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            ["What is the hall capacity?", "Our main hall seats approximately 100 guests in wedding setup and around 200 in dining arrangement. The lawn accommodates 20-50 guests."],
+            ["Is parking available?", "Yes, we offer free on-site parking for all guests."],
+            ["Is catering available?", "Yes, we provide in-house catering. Outside caterers are also welcome."],
+            ["Can we arrange our own decoration?", "We offer in-house decoration and also allow outside decorators."],
+            ["How much advance is required to book?", "The advance booking amount depends on the type of event. Please call or WhatsApp Pintu Kumar Singh for details."],
+            ["What is the cancellation policy?", "If a booking is cancelled, the advance is not refunded but can be adjusted to a new date."],
+            ["Can we visit the venue before booking?", "Yes, you are welcome to visit the venue any day, any time. No appointment needed."],
+            ["Is there power backup?", "Yes, we have 24/7 generator backup to ensure uninterrupted power during your event."],
+            ["Is the hall air conditioned?", "Yes, the main hall is air conditioned."],
+            ["What events can be hosted here?", "Weddings, receptions, engagements, birthday parties and other social events."],
+          ].map(([q, a]) => ({
+            "@type": "Question",
+            name: q,
+            acceptedAnswer: { "@type": "Answer", text: a },
+          })),
+        }),
+      },
+    ],
   }),
   component: Index,
 });
