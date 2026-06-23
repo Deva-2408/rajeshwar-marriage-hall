@@ -4,9 +4,35 @@ import { useEffect, useState } from "react";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Rajeshwar Marriage Hall - Bihta, Bihar" },
-      { name: "description", content: "Rajeshwar Marriage Hall - Premier wedding venue in Bihta, Bihar, India" },
+      { title: "Rajeshwar Marriage Hall — Wedding Venue in Bihta, Bihar | Shaadi Hall Bihta" },
+      {
+        name: "description",
+        content:
+          "Rajeshwar Marriage Hall — Bihta ka sabse sundar aur affordable vivah sthal. Shaadi, reception, sagai aur birthday ke liye book karein. Call: +91 62079 28461",
+      },
+      {
+        name: "keywords",
+        content:
+          "marriage hall bihta, shaadi hall bihta bihar, wedding venue bihta, banquet hall near patna, vivah bhawan bihta, rajeshwar marriage hall",
+      },
+      { property: "og:title", content: "Rajeshwar Marriage Hall — Wedding Venue in Bihta, Bihar" },
+      {
+        property: "og:description",
+        content:
+          "Bihta ka sabse sundar aur affordable vivah sthal. Shaadi, reception, sagai aur birthday ke liye book karein. Call: +91 62079 28461",
+      },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://rajeshwar-marriage-hall.lovable.app/" },
+      { property: "og:site_name", content: "Rajeshwar Marriage Hall" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Rajeshwar Marriage Hall — Wedding Venue in Bihta, Bihar" },
+      {
+        name: "twitter:description",
+        content:
+          "Bihta ka sabse sundar aur affordable vivah sthal. Shaadi, reception, sagai aur birthday ke liye book karein.",
+      },
     ],
+    links: [{ rel: "canonical", href: "https://rajeshwar-marriage-hall.lovable.app/" }],
   }),
   component: Index,
 });
@@ -242,6 +268,62 @@ function Index() {
         }
 
         .gold-accent { color: var(--accent); }
+
+        .floating-action {
+          position: fixed;
+          right: 20px;
+          width: 56px;
+          height: 56px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.6rem;
+          z-index: 9999;
+          box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+          transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+        }
+
+        .floating-action:hover { transform: scale(1.08); }
+
+        .floating-whatsapp {
+          bottom: 20px;
+          background-color: #25D366;
+          color: #FFFFFF;
+          animation: whatsappPulse 2s ease-out infinite;
+        }
+
+        .floating-call {
+          bottom: 90px;
+          background-color: var(--accent);
+          color: var(--primary);
+        }
+
+        .floating-action::after {
+          content: attr(data-tooltip);
+          position: absolute;
+          right: 70px;
+          top: 50%;
+          transform: translateY(-50%);
+          background: rgba(0, 0, 0, 0.85);
+          color: #fff;
+          font-family: var(--font-body);
+          font-size: 0.8rem;
+          padding: 0.4rem 0.7rem;
+          border-radius: var(--radius-sm);
+          white-space: nowrap;
+          opacity: 0;
+          pointer-events: none;
+          transition: opacity var(--transition-fast);
+        }
+
+        .floating-action:hover::after { opacity: 1; }
+
+        @keyframes whatsappPulse {
+          0% { box-shadow: 0 6px 16px rgba(0,0,0,0.25), 0 0 0 0 rgba(37, 211, 102, 0.55); }
+          70% { box-shadow: 0 6px 16px rgba(0,0,0,0.25), 0 0 0 18px rgba(37, 211, 102, 0); }
+          100% { box-shadow: 0 6px 16px rgba(0,0,0,0.25), 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
 
         .navbar {
           position: fixed;
@@ -2013,6 +2095,25 @@ function Index() {
           <p className="footer-bottom">© 2024 Rajeshwar Marriage Hall, Bihta, Bihar. All Rights Reserved.</p>
         </div>
       </footer>
+
+      <a
+        href="tel:+916207928461"
+        className="floating-action floating-call"
+        aria-label="Call Now"
+        data-tooltip="Call Now"
+      >
+        <i className="fas fa-phone"></i>
+      </a>
+      <a
+        href="https://wa.me/916207928461"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="floating-action floating-whatsapp"
+        aria-label="Chat on WhatsApp"
+        data-tooltip="Chat on WhatsApp"
+      >
+        <i className="fa-brands fa-whatsapp"></i>
+      </a>
     </>
   );
 }
