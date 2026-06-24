@@ -218,6 +218,7 @@ function Index() {
         :root {
           --primary: #8B0000;
           --accent: #C9A84C;
+          --accent-text: #7A5C00;
           --background: #FFFDF7;
           --text: #1A1A1A;
           --light-text: #5A5A5A;
@@ -672,7 +673,7 @@ function Index() {
           font-family: var(--font-body);
           font-size: 0.95rem;
           font-weight: 500;
-          color: var(--accent);
+          color: var(--accent-text);
           letter-spacing: 1px;
         }
 
@@ -728,7 +729,7 @@ function Index() {
           font-family: var(--font-body);
           font-size: 0.9rem;
           font-style: italic;
-          color: var(--accent);
+          color: var(--accent-text);
           background-color: rgba(201, 168, 76, 0.08);
           padding: 0.5rem 1rem;
           border-radius: var(--radius-md);
@@ -741,7 +742,7 @@ function Index() {
           font-family: var(--font-body);
           font-size: 0.8rem;
           font-weight: 600;
-          color: var(--accent);
+          color: var(--accent-text);
           border: 1.5px solid var(--accent);
           padding: 0.4rem 0.9rem;
           border-radius: var(--radius-md);
@@ -897,7 +898,7 @@ function Index() {
         .service-title-hindi {
           font-family: var(--font-body);
           font-size: 0.85rem;
-          color: var(--accent);
+          color: var(--accent-text);
           margin-bottom: 0.75rem;
         }
 
@@ -946,7 +947,7 @@ function Index() {
           font-family: var(--font-body);
           font-size: 0.9rem;
           font-style: italic;
-          color: var(--accent);
+          color: var(--accent-text);
           text-align: center;
           margin-top: 2rem;
         }
@@ -1419,7 +1420,7 @@ function Index() {
           font-family: var(--font-body);
           font-size: 1rem;
           font-weight: 500;
-          color: var(--accent);
+          color: var(--accent-text);
         }
 
         .contact-item {
@@ -1446,7 +1447,7 @@ function Index() {
           font-family: var(--font-body);
           font-size: 0.8rem;
           font-weight: 600;
-          color: var(--accent);
+          color: var(--accent-text);
           text-transform: uppercase;
           letter-spacing: 0.5px;
           margin-bottom: 0.15rem;
@@ -1524,7 +1525,7 @@ function Index() {
           font-family: var(--font-body);
           font-size: 0.95rem;
           font-style: italic;
-          color: var(--accent);
+          color: var(--accent-text);
           text-align: center;
           margin-top: 2.5rem;
           line-height: 1.6;
