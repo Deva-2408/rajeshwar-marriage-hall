@@ -1668,6 +1668,7 @@ function Index() {
         </div>
       </nav>
 
+      <main>
       {/* Hero Section */}
       <section className="hero" id="home">
         <div className="container">
@@ -2097,6 +2098,8 @@ function Index() {
           </p>
         </div>
       </section>
+
+      </main>
 
       {/* Footer */}
       <footer className="footer">
