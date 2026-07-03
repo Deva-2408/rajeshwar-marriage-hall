@@ -1931,6 +1931,15 @@ function Index() {
                     />
                     <span className="gallery-caption">{label}</span>
                   </>
+                ) : i === 8 ? (
+                  <>
+                    <img
+                      src={hallExteriorAsset.url}
+                      alt="Rajeshwar Marriage Hall building exterior at twilight"
+                      loading="lazy"
+                    />
+                    <span className="gallery-caption">{label}</span>
+                  </>
                 ) : (
                   label
                 )}
@@ -1961,6 +1970,12 @@ function Index() {
                   <img
                     src={entranceGateAsset.url}
                     alt="Entrance gate of Rajeshwar Marriage Hall"
+                    style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: 'inherit' }}
+                  />
+                ) : lightboxIndex === 8 ? (
+                  <img
+                    src={hallExteriorAsset.url}
+                    alt="Rajeshwar Marriage Hall building exterior at twilight"
                     style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: 'inherit' }}
                   />
                 ) : (
