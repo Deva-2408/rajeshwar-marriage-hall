@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import rajeshwarHallAsset from "@/assets/rajeshwar-hall.jpg.asset.json";
+import entranceGateAsset from "@/assets/entrance-gate.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -942,6 +943,7 @@ function Index() {
           color: var(--primary);
           transition: transform var(--transition-fast), box-shadow var(--transition-fast);
           overflow: hidden;
+          position: relative;
         }
 
         .gallery-item:hover {
