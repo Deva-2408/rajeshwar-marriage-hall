@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import rajeshwarHallAsset from "@/assets/rajeshwar-hall.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -692,9 +693,14 @@ function Index() {
           align-items: center;
           justify-content: center;
           background-color: #FDF8F0;
-          font-family: var(--font-body);
-          font-size: 0.9rem;
-          color: var(--light-text);
+          overflow: hidden;
+        }
+
+        .about-image-placeholder img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
         }
 
         .about-content h3 {
@@ -1706,7 +1712,11 @@ function Index() {
           </div>
           <div className="about-grid">
             <div className="about-image-placeholder">
-              <span>Hall Photo</span>
+              <img
+                src={rajeshwarHallAsset.url}
+                alt="Rajeshwar Marriage Hall building exterior with signage, Bihta, Bihar"
+                loading="lazy"
+              />
             </div>
             <div className="about-content">
               <h3>Bihta's Premier Wedding Venue</h3>
