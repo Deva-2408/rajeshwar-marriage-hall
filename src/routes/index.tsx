@@ -1921,7 +1921,18 @@ function Index() {
                 onClick={() => setLightboxIndex(i)}
                 aria-label={`Open photo: ${label}`}
               >
-                {label}
+                {i === 3 ? (
+                  <>
+                    <img
+                      src={entranceGateAsset.url}
+                      alt="Entrance gate of Rajeshwar Marriage Hall"
+                      loading="lazy"
+                    />
+                    <span className="gallery-caption">{label}</span>
+                  </>
+                ) : (
+                  label
+                )}
               </button>
             ))}
           </div>
