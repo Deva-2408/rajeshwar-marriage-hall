@@ -1956,7 +1956,15 @@ function Index() {
                 <i className="fas fa-times"></i>
               </button>
               <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
-                {galleryItems[lightboxIndex]}
+                {lightboxIndex === 3 ? (
+                  <img
+                    src={entranceGateAsset.url}
+                    alt="Entrance gate of Rajeshwar Marriage Hall"
+                    style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: 'inherit' }}
+                  />
+                ) : (
+                  galleryItems[lightboxIndex]
+                )}
               </div>
             </div>
           )}
