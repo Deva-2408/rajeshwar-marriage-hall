@@ -951,6 +951,31 @@ function Index() {
           box-shadow: 0 8px 24px rgba(139, 0, 0, 0.15);
         }
 
+        .gallery-item img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: inherit;
+        }
+
+        .gallery-caption {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background: rgba(139, 0, 0, 0.75);
+          color: var(--accent);
+          font-family: var(--font-body);
+          font-size: 0.9rem;
+          font-weight: 600;
+          padding: 0.5rem;
+          text-align: center;
+          z-index: 1;
+        }
+
         .gallery-note {
           font-family: var(--font-body);
           font-size: 0.9rem;
