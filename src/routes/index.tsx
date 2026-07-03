@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import rajeshwarHallAsset from "@/assets/rajeshwar-hall.jpg.asset.json";
+import entranceGateAsset from "@/assets/entrance-gate.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -942,11 +943,37 @@ function Index() {
           color: var(--primary);
           transition: transform var(--transition-fast), box-shadow var(--transition-fast);
           overflow: hidden;
+          position: relative;
         }
 
         .gallery-item:hover {
           transform: translateY(-3px);
           box-shadow: 0 8px 24px rgba(139, 0, 0, 0.15);
+        }
+
+        .gallery-item img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: inherit;
+        }
+
+        .gallery-caption {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background: rgba(139, 0, 0, 0.75);
+          color: var(--accent);
+          font-family: var(--font-body);
+          font-size: 0.9rem;
+          font-weight: 600;
+          padding: 0.5rem;
+          text-align: center;
+          z-index: 1;
         }
 
         .gallery-note {
@@ -1894,7 +1921,18 @@ function Index() {
                 onClick={() => setLightboxIndex(i)}
                 aria-label={`Open photo: ${label}`}
               >
-                {label}
+                {i === 3 ? (
+                  <>
+                    <img
+                      src={entranceGateAsset.url}
+                      alt="Entrance gate of Rajeshwar Marriage Hall"
+                      loading="lazy"
+                    />
+                    <span className="gallery-caption">{label}</span>
+                  </>
+                ) : (
+                  label
+                )}
               </button>
             ))}
           </div>
@@ -1918,7 +1956,15 @@ function Index() {
                 <i className="fas fa-times"></i>
               </button>
               <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
-                {galleryItems[lightboxIndex]}
+                {lightboxIndex === 3 ? (
+                  <img
+                    src={entranceGateAsset.url}
+                    alt="Entrance gate of Rajeshwar Marriage Hall"
+                    style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: 'inherit' }}
+                  />
+                ) : (
+                  galleryItems[lightboxIndex]
+                )}
               </div>
             </div>
           )}
