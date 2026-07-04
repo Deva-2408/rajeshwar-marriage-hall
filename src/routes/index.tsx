@@ -1932,6 +1932,15 @@ function Index() {
                     />
                     <span className="gallery-caption">{label}</span>
                   </>
+                ) : i === 4 ? (
+                  <>
+                    <img
+                      src={decorativeLightingAsset.url}
+                      alt="Decorative lighting at Rajeshwar Marriage Hall at night"
+                      loading="lazy"
+                    />
+                    <span className="gallery-caption">{label}</span>
+                  </>
                 ) : i === 8 ? (
                   <>
                     <img
