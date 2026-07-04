@@ -4,6 +4,7 @@ import rajeshwarHallAsset from "@/assets/rajeshwar-hall.jpg.asset.json";
 import entranceGateAsset from "@/assets/entrance-gate.jpg.asset.json";
 import hallExteriorAsset from "@/assets/hall-exterior.jpg.asset.json";
 import decorativeLightingAsset from "@/assets/decorative-lighting.jpg.asset.json";
+import outdoorLawnAsset from "@/assets/outdoor-lawn.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
