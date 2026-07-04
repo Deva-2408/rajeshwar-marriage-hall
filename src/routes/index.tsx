@@ -1962,7 +1962,10 @@ function Index() {
                     <span className="gallery-caption">{label}</span>
                   </>
                 ) : (
-                  label
+                  <div className="gallery-placeholder">
+                    <Camera size={28} strokeWidth={1.5} />
+                    <span>{label}</span>
+                  </div>
                 )}
               </button>
             ))}
