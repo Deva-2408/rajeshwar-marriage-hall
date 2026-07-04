@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import rajeshwarHallAsset from "@/assets/rajeshwar-hall.jpg.asset.json";
 import entranceGateAsset from "@/assets/entrance-gate.jpg.asset.json";
 import hallExteriorAsset from "@/assets/hall-exterior.jpg.asset.json";
+import decorativeLightingAsset from "@/assets/decorative-lighting.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -1931,6 +1932,15 @@ function Index() {
                     />
                     <span className="gallery-caption">{label}</span>
                   </>
+                ) : i === 4 ? (
+                  <>
+                    <img
+                      src={decorativeLightingAsset.url}
+                      alt="Decorative lighting at Rajeshwar Marriage Hall at night"
+                      loading="lazy"
+                    />
+                    <span className="gallery-caption">{label}</span>
+                  </>
                 ) : i === 8 ? (
                   <>
                     <img
@@ -1970,6 +1980,12 @@ function Index() {
                   <img
                     src={entranceGateAsset.url}
                     alt="Entrance gate of Rajeshwar Marriage Hall"
+                    style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: 'inherit' }}
+                  />
+                ) : lightboxIndex === 4 ? (
+                  <img
+                    src={decorativeLightingAsset.url}
+                    alt="Decorative lighting at Rajeshwar Marriage Hall at night"
                     style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: 'inherit' }}
                   />
                 ) : lightboxIndex === 8 ? (
