@@ -980,6 +980,19 @@ function Index() {
           z-index: 1;
         }
 
+        .gallery-placeholder {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 0.5rem;
+          color: #A09070;
+          font-family: var(--font-body);
+          font-size: 0.9rem;
+          font-weight: 500;
+          z-index: 1;
+        }
+
         .gallery-note {
           font-family: var(--font-body);
           font-size: 0.9rem;
