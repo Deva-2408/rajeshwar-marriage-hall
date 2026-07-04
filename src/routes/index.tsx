@@ -1942,6 +1942,15 @@ function Index() {
                     />
                     <span className="gallery-caption">{label}</span>
                   </>
+                ) : i === 6 ? (
+                  <>
+                    <img
+                      src={outdoorLawnAsset.url}
+                      alt="Outdoor lawn area at Rajeshwar Marriage Hall"
+                      loading="lazy"
+                    />
+                    <span className="gallery-caption">{label}</span>
+                  </>
                 ) : i === 8 ? (
                   <>
                     <img
@@ -1987,6 +1996,12 @@ function Index() {
                   <img
                     src={decorativeLightingAsset.url}
                     alt="Decorative lighting at Rajeshwar Marriage Hall at night"
+                    style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: 'inherit' }}
+                  />
+                ) : lightboxIndex === 6 ? (
+                  <img
+                    src={outdoorLawnAsset.url}
+                    alt="Outdoor lawn area at Rajeshwar Marriage Hall"
                     style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: 'inherit' }}
                   />
                 ) : lightboxIndex === 8 ? (
