@@ -1982,6 +1982,12 @@ function Index() {
                     alt="Entrance gate of Rajeshwar Marriage Hall"
                     style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: 'inherit' }}
                   />
+                ) : lightboxIndex === 4 ? (
+                  <img
+                    src={decorativeLightingAsset.url}
+                    alt="Decorative lighting at Rajeshwar Marriage Hall at night"
+                    style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: 'inherit' }}
+                  />
                 ) : lightboxIndex === 8 ? (
                   <img
                     src={hallExteriorAsset.url}
