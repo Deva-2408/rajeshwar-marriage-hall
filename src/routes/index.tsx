@@ -1486,6 +1486,8 @@ function Index() {
           .testimonials-title { font-size: 2.5rem; }
           .testimonial-card { padding: 2rem 1.5rem; }
           .testimonial-text { font-size: 0.95rem; }
+          .reviews-deck-desktop { display: block; }
+          .reviews-deck-mobile { display: none; }
         }
 
         @media (min-width: 1024px) {
