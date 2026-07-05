@@ -6,6 +6,7 @@ import entranceGateAsset from "@/assets/entrance-gate.jpg.asset.json";
 import hallExteriorAsset from "@/assets/hall-exterior.jpg.asset.json";
 import decorativeLightingAsset from "@/assets/decorative-lighting.jpg.asset.json";
 import outdoorLawnAsset from "@/assets/outdoor-lawn.jpg.asset.json";
+import ReviewsDeck from "@/components/ReviewsDeck";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -648,7 +649,7 @@ function Index() {
         #events { background-color: var(--primary); }
         #services { background-color: var(--white); }
         #gallery { background-color: #FFFDF7; }
-        #testimonials { background-color: var(--primary); }
+        #testimonials { background-color: #FFFDF7; }
         #faq { background-color: var(--white); }
         #contact { background-color: var(--background); }
 
@@ -1082,7 +1083,7 @@ function Index() {
           font-family: var(--font-heading);
           font-size: 2rem;
           font-weight: 700;
-          color: var(--white);
+          color: var(--primary);
           text-align: center;
           margin-bottom: 0.5rem;
         }
@@ -1091,7 +1092,7 @@ function Index() {
           font-family: var(--font-body);
           font-size: 0.95rem;
           font-weight: 500;
-          color: var(--accent);
+          color: #A0824B;
           letter-spacing: 1px;
           text-align: center;
         }
@@ -1161,35 +1162,225 @@ function Index() {
           font-family: var(--font-body);
           font-size: 0.85rem;
           font-style: italic;
-          color: rgba(255, 255, 255, 0.7);
+          color: rgba(60, 40, 20, 0.6);
           text-align: center;
-          margin-top: 2rem;
+          margin-top: 1.25rem;
         }
 
         .testimonials-cta-wrap {
           text-align: center;
-          margin-top: 1.5rem;
+          margin-top: 0.75rem;
         }
 
         .testimonials-cta {
           display: inline-block;
           padding: 0.85rem 2rem;
           background-color: transparent;
-          color: var(--accent);
+          color: #8A6A2B;
           font-family: var(--font-body);
           font-size: 0.95rem;
           font-weight: 600;
-          border: 2px solid var(--accent);
+          border: 2px solid #8A6A2B;
           border-radius: var(--radius-lg);
           transition: transform var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast), color var(--transition-fast);
         }
 
         .testimonials-cta:hover {
           transform: translateY(-2px);
-          background-color: var(--accent);
-          color: var(--primary);
-          box-shadow: 0 6px 20px rgba(201, 168, 76, 0.3);
+          background-color: #8A6A2B;
+          color: #FFFDF7;
+          box-shadow: 0 6px 20px rgba(138, 106, 43, 0.35);
         }
+
+        /* Reviews Deck */
+        .reviews-deck-wrap { width: 100%; }
+        .reviews-deck-desktop { display: none; }
+        .reviews-deck-mobile { display: block; }
+
+        .reviews-deck {
+          position: relative;
+          height: 460px;
+          max-width: 900px;
+          margin: 0 auto;
+        }
+        .review-card {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 280px;
+          background: #ffffff;
+          border: 2px solid #C9A84C;
+          border-radius: var(--radius-lg);
+          padding: 12px;
+          box-shadow: 0 14px 36px rgba(60, 30, 10, 0.18);
+          cursor: pointer;
+          transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+                      box-shadow 0.35s ease, z-index 0s linear 0.25s;
+          border-width: 2px;
+          border-style: solid;
+          overflow: visible;
+          appearance: none;
+          font: inherit;
+          color: inherit;
+          text-align: left;
+        }
+        .review-card img {
+          display: block;
+          width: 100%;
+          height: auto;
+          border-radius: 0;
+          user-select: none;
+          pointer-events: none;
+        }
+        .review-card-left {
+          transform: translate(-115%, -50%) rotate(-7deg);
+          z-index: 1;
+        }
+        .review-card-right {
+          transform: translate(15%, -50%) rotate(7deg);
+          z-index: 1;
+        }
+        .review-card-front {
+          transform: translate(-50%, -50%) rotate(0deg) scale(1.05);
+          z-index: 3;
+          cursor: default;
+          box-shadow: 0 22px 50px rgba(60, 30, 10, 0.28);
+        }
+        .review-card-left:hover { transform: translate(-118%, -52%) rotate(-7deg); }
+        .review-card-right:hover { transform: translate(18%, -52%) rotate(7deg); }
+
+        .review-zoom {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          width: 32px;
+          height: 32px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          background: rgba(255, 253, 247, 0.95);
+          color: #8A6A2B;
+          border: 1.5px solid #C9A84C;
+          border-radius: 50%;
+          cursor: pointer;
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+          transition: transform 0.15s ease, background 0.15s ease;
+          z-index: 4;
+          padding: 0;
+        }
+        .review-zoom:hover { transform: scale(1.08); background: #fff; }
+
+        /* Mobile embla deck */
+        .reviews-embla { overflow: hidden; padding: 40px 0 30px; }
+        .reviews-embla-container { display: flex; align-items: center; }
+        .reviews-embla-slide {
+          flex: 0 0 78%;
+          min-width: 0;
+          display: flex;
+          justify-content: center;
+          padding: 0 8px;
+        }
+        .review-card-mobile {
+          position: relative;
+          width: 100%;
+          max-width: 300px;
+          background: #ffffff;
+          border: 2px solid #C9A84C;
+          border-radius: var(--radius-lg);
+          padding: 12px;
+          box-shadow: 0 14px 36px rgba(60, 30, 10, 0.18);
+          transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .review-card-mobile.is-side {
+          transform: scale(0.86) rotate(-4deg);
+          opacity: 0.85;
+        }
+        .reviews-embla-slide:last-child .review-card-mobile.is-side {
+          transform: scale(0.86) rotate(4deg);
+        }
+        .review-card-mobile.is-front {
+          transform: scale(1) rotate(0deg);
+          box-shadow: 0 22px 50px rgba(60, 30, 10, 0.28);
+        }
+        .review-card-mobile img {
+          display: block;
+          width: 100%;
+          height: auto;
+          border-radius: 0;
+          pointer-events: none;
+          user-select: none;
+        }
+        .reviews-swipe-hint {
+          text-align: center;
+          font-family: var(--font-body);
+          font-size: 0.8rem;
+          color: rgba(60, 40, 20, 0.55);
+          margin-top: 0.5rem;
+          letter-spacing: 0.5px;
+        }
+
+        /* Lightbox */
+        .reviews-lightbox-overlay {
+          position: fixed;
+          inset: 0;
+          background: rgba(20, 10, 5, 0.82);
+          z-index: 1000;
+          animation: fadeIn 0.2s ease;
+        }
+        .reviews-lightbox-content {
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: min(92vw, 520px);
+          max-height: 92vh;
+          z-index: 1001;
+          outline: none;
+        }
+        .reviews-lightbox-embla { overflow: hidden; }
+        .reviews-lightbox-container { display: flex; }
+        .reviews-lightbox-slide {
+          flex: 0 0 100%;
+          min-width: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 0 6px;
+        }
+        .reviews-lightbox-slide img {
+          max-width: 100%;
+          max-height: 88vh;
+          background: #fff;
+          border: 2px solid #C9A84C;
+          border-radius: var(--radius-lg);
+          padding: 10px;
+          box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+        .reviews-lightbox-close {
+          position: absolute;
+          top: -14px;
+          right: -14px;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background: #fff;
+          color: #2d2d2d;
+          border: 2px solid #C9A84C;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+          z-index: 2;
+        }
+        .sr-only-visually {
+          position: absolute;
+          width: 1px; height: 1px;
+          padding: 0; margin: -1px;
+          overflow: hidden; clip: rect(0,0,0,0);
+          white-space: nowrap; border: 0;
+        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
         @media (min-width: 768px) {
           .container { padding: 0 1.5rem; }
@@ -1295,6 +1486,8 @@ function Index() {
           .testimonials-title { font-size: 2.5rem; }
           .testimonial-card { padding: 2rem 1.5rem; }
           .testimonial-text { font-size: 0.95rem; }
+          .reviews-deck-desktop { display: block; }
+          .reviews-deck-mobile { display: none; }
         }
 
         @media (min-width: 1024px) {
@@ -2044,50 +2237,7 @@ function Index() {
             <div className="about-divider"></div>
             <p className="testimonials-subtitle">हमारे मेहमानों के अनुभव</p>
           </div>
-          <div className="testimonials-grid">
-            <div className="testimonial-card">
-              <span className="testimonial-badge">Google Review</span>
-              <div className="testimonial-stars">
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
-              </div>
-              <p className="testimonial-text">
-                Bahut hi sundar hall hai. Hamare bête ki shaadi yahaan hui aur sab log bahut khush the. Sajaavat aur khaana dono lajawaab the. Pintu bhai ne bahut accha support kiya.
-              </p>
-              <span className="testimonial-name">Ramesh Kumar, Bihta</span>
-            </div>
-            <div className="testimonial-card">
-              <span className="testimonial-badge">Google Review</span>
-              <div className="testimonial-stars">
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
-              </div>
-              <p className="testimonial-text">
-                Hall ka entrance bahut hi royal lagta hai. Generator backup aur parking ki suvidha bahut acchi hai. Hum apni beti ki reception ke liye yahan aaye the — bilkul yaadgaar raha.
-              </p>
-              <span className="testimonial-name">Sunita Devi, Bishunpura</span>
-            </div>
-            <div className="testimonial-card">
-              <span className="testimonial-badge">Google Review</span>
-              <div className="testimonial-stars">
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
-              </div>
-              <p className="testimonial-text">
-                Sab kuch ek hi jagah — catering, decoration, sound — bahut aasaan ho gaya. Affordable price mein itna acha venue milna mushkil hai. Zaroor recommend karunga.
-              </p>
-              <span className="testimonial-name">Manoj Singh, Bihta</span>
-            </div>
-          </div>
+          <ReviewsDeck />
           <p className="testimonials-note">Reviews sourced from Google Maps</p>
           <div className="testimonials-cta-wrap">
             <a
